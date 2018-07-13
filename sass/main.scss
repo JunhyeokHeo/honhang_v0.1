@@ -3,9 +3,12 @@
 @import "abstract/variables";
 
 @import "base/base";
+@import "base/grid";
 @import "base/typography";
 
-@import "pages/signin";
+@import "component/search-bar";
+
+@import "pages/main";
 
 
 

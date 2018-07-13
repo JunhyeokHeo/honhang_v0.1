@@ -1,0 +1,32 @@
+.main {
+  height: 80vh;
+}
+
+.header {
+  height: 10rem;
+  &__logo-container {
+    float: left;
+  }
+
+  &__signin {
+    float: right;
+  }
+}
+
+.search {
+  
+  &__text {
+    text-align: center;
+  }
+  
+  &__container{
+    margin: 0 auto;
+    width: 70%;
+
+  }
+}
+
+.footer {
+  height: 20vh;
+  background-color: grey;
+}
