@@ -1,0 +1,22 @@
+{
+  "name": "honhang_v0.1",
+  "version": "1.0.0",
+  "description": "Initial honhang web application",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JunhyeokHeo/honhang_v0.1.git"
+  },
+  "author": "Junhyeok Heo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JunhyeokHeo/honhang_v0.1/issues"
+  },
+  "homepage": "https://github.com/JunhyeokHeo/honhang_v0.1#readme",
+  "dependencies": {
+    "node-sass": "^4.9.2"
+  }
+}
