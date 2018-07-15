@@ -7,7 +7,6 @@
     border-radius: 2px;
     background-color: rbga($color-white, 0.5);
     border: none;
-    border-bottom: 3px solid transparent;
     width: 100%;
     display: block;
     transition: all 0.3s;
@@ -16,7 +15,7 @@
     box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
 
     &::-webkit-input-placeholder {
-      color: $color-grey-dark-2;
+      color: $color-grey-dark;
     }
   }
 }

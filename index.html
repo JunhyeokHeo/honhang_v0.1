@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/icon-font.css">
   <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Song+Myung" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <title>혼행</title>
@@ -10,46 +11,116 @@
 
 <body>
   <main class="main">
+    <div class="bg-image"></div>
     <div class="header">
       <div class="header__left">
-        <div class="header__logo-container">logo</div>
+        <div class="header__logo">혼행로고.</div>
       </div>
       <div class="header__right">
-        <button class="header__signin">로그인하기</button>
+        <a href="pages/signin.html" class="btn-text">로그인
+          <i class="header__icon icon-arrows-right"></i>
+        </a>
       </div>
     </div>
     <div class="search">
       <div class="search__text">
-        <h1 class="heading-primary">혼자떠난여행. 혼자아닌여행</h1>
+        <h1 class="heading-primary">혼자떠난여행. 혼자아닌여행.</h1>
       </div>
       <div class="search__container">
         <div class="row">
-          <div class="search-bar">
-            <input type="text" class="search-bar__input">
+          <div class="col-1-of-2">
+            <div class="search-bar">
+              <input type="text" class="search-bar__input" placeholder="도시">
+            </div>
+          </div>
+          <div class="col-1-of-2">
+            <div class="search-bar">
+              <input type="text" class="search-bar__input" placeholder="장소">
+            </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-1-of-3">
+          <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="text" class="search-bar__input">
+              <input type="text" class="search-bar__input" placeholder="날짜">
             </div>
           </div>
-          <div class="col-1-of-3">
+          <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="text" class="search-bar__input">
+              <input type="text" class="search-bar__input" placeholder="시간">
             </div>
           </div>
-          <div class="col-1-of-3">
+          <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="text" class="search-bar__input">
+              <input type="text" class="search-bar__input" placeholder="희망인원">
             </div>
+          </div>
+          <div class="col-1-of-4">
+            <button class="btn btn--color">검색</button>
           </div>
         </div>
       </div>
     </div>
   </main>
+
   <footer class=footer>
-    <div class="row"> footer</div>
+    <div class="row">
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">SOCIAL</li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">페이스북</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">인스타그램</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">카카오톡</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">COMPANY</li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">회사소개</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">연혁</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">연락처</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">HELP</li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">QnA</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">의견조율</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">문의하기</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">LEGAL</li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">약관</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">사생활 정책</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__link">라이센스</a>
+          </li>
+        </ul>
+      </div>
   </footer>
   <script type="text/javascript" src="./js/main.js"></script>
 </body>
