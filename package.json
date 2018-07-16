@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JunhyeokHeo/honhang_v0.1#readme",
   "dependencies": {
+    "jquery": "^3.3.1",
     "node-sass": "^4.9.2"
   }
 }

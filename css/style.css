@@ -80,7 +80,6 @@ body {
 
 .btn, .btn:link, .btn:visited {
   text-decoration: none;
-  width: 100%;
   padding: 1.5rem;
   display: inline-block;
   border-radius: 3px;
@@ -122,8 +121,16 @@ body {
 
 .btn--color {
   background: #3FCBCE;
+  width: 30rem;
   color: #fff; }
   .btn--color::after {
+    background: #3FCBCE; }
+
+.btn--color2 {
+  background: #3FCBCE;
+  width: 100%;
+  color: #fff; }
+  .btn--color2::after {
     background: #3FCBCE; }
 
 .btn-text:link, .btn-text:visited {
@@ -190,6 +197,9 @@ body {
   box-shadow: 0 1rem 3rem #000;
   background-color: #fff; }
 
+.signout {
+  display: none; }
+
 .main {
   height: 80vh;
   position: relative; }
@@ -207,19 +217,18 @@ body {
   overflow: hidden; }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
   height: 10%; }
   .header__left {
-    display: flex; }
+    padding: 2rem;
+    float: left; }
   .header__right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 3rem; }
+    padding: 2.5rem; }
+    .header__right-button {
+      float: right; }
+      .header__right-button:not(:last-child) {
+        margin-right: 2.5rem; }
   .header__logo {
-    margin-top: 1.4rem;
-    margin-left: 3rem;
     font-family: 'Song Myung', serif;
     font-size: 3.5rem;
     transition: all 2s; }
@@ -281,3 +290,24 @@ body {
       text-align: center;
       font-family: 'Song Myung', serif;
       font-size: 3.5rem; }
+
+.section-make {
+  width: 100%;
+  height: 90vh;
+  background-color: #eee; }
+
+.makeup {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10rem 0; }
+  .makeup__title {
+    font-size: 3rem;
+    color: #333; }
+  .makeup__form {
+    width: 100%; }
+    .makeup__form-input {
+      display: block;
+      width: 50%;
+      height: 5rem; }
+      .makeup__form-input:not(:last-child) {
+        margin-bottom: 2rem; }

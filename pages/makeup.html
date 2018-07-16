@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/icon-font.css">
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Song+Myung" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>혼행</title>
+</head>
+
+<body>
+  <main>
+    <div class="header">
+      <div class="header__left">
+        <div class="header__logo">혼행로고.</div>
+      </div>
+      <div class="header__right">
+        <div class="header__right-button">
+          <a href="pages/signin.html" class="btn-text signin">로그인
+            <i class="header__icon icon-arrows-right"></i>
+          </a>
+        </div>
+        <div class="header__right-button">
+          <a href="#" onclick="signout()" class="btn-text signout">로그아웃
+            <i class="header__icon icon-arrows-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="section-make">
+      <div class="makeup">
+        <div class="makeup__title">
+          동행 만들기
+        </div>
+        <div class="makeup__form">
+          <input type="text" placeholder="어떤 도시인가요?" class="makeup__form-input">
+          <input type="text" placeholder="어디에 가실거죠?" class="makeup__form-input">
+          <input type="date" placeholder="언제가실 건가요?" class="makeup__form-input">
+          <input type="time" placeholder="몇시에 떠나세요?" class="makeup__form-input">
+          <input type="number" placeholder="희망인원이 있으신가요?" class="makeup__form-input">
+          <button class="btn btn--color">확인</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script type="text/javascript" src="../js/makeup.js"></script>
+
+</body>
+
+</html>

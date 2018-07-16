@@ -3,7 +3,7 @@
   &:link,
   &:visited {
     text-decoration: none;
-    width: 100%;
+    
     padding: 1.5rem;
     display: inline-block;
     border-radius: 3px;
@@ -48,6 +48,15 @@
   }
   &--color {
     background: $color-primary;
+    width: 30rem;
+    color: $color-white;
+    &::after {
+      background: $color-primary;
+    }
+  }
+  &--color2 {
+    background: $color-primary;
+    width: 100%;
     color: $color-white;
     &::after {
       background: $color-primary;
@@ -56,6 +65,7 @@
 }
 
 .btn-text {
+
   &:link,
   &:visited {
     font-size: 1.5rem;

@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Song+Myung" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <title>혼행</title>
-
 </head>
 
 <body>
@@ -22,7 +21,7 @@
     <div class="card">
       <div class="signin">
         <div class="signin__left">
-          <form action="#" class="form">
+          <div class="form">
             <div class="form__group">
               <input type="email" class="form__input" placeholder="Email" id="email" autocomplete="off" required>
               <label for="email" class="form__label">이메일을 입력해주세요.</label>
@@ -31,12 +30,8 @@
               <input type="password" class="form__input" placeholder="password" id="password" autocomplete="off" required>
               <label for="password" class="form__label">비밀번호를 입력해주세요.</label>
             </div>
-            <div class="form__group">
-              <input type="password" class="form__input" placeholder="password" id="password" autocomplete="off" required>
-              <label for="password" class="form__label">비밀번호를 한번더 입력해주세요.</label>
-            </div>
-            <button class="btn btn-color">회원가입</button>
-          </form>
+            <button onclick="signup()" class="btn btn--color">회원가입</button>
+          </div>
           <a href="signin.html" class="btn-text">이미 아이디가 있으시다구요?</a>
         </div>
 
@@ -48,7 +43,9 @@
 
   </main>
 
-  <script type="text/javascript" src="./js/main.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="../js/firebase.js"></script>
+  <script type="text/javascript" src="../js/main.js"></script>
 </body>
 
 </html>

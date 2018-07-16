@@ -6,6 +6,11 @@
   <link rel="stylesheet" href="css/icon-font.css">
   <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Song+Myung" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/jquery.js"></script>
+  <!-- 날짜선택API -->
+  <link rel="stylesheet" href="./css/datepicker.min.css">
+  <script src="./js/datepicker.min.js"></script>
+  
   <title>혼행</title>
 </head>
 
@@ -17,9 +22,21 @@
         <div class="header__logo">혼행로고.</div>
       </div>
       <div class="header__right">
-        <a href="pages/signin.html" class="btn-text">로그인
-          <i class="header__icon icon-arrows-right"></i>
-        </a>
+        <div class="header__right-button">
+          <a href="pages/signin.html" class="btn-text signin">로그인
+            <i class="header__icon icon-arrows-right"></i>
+          </a>
+        </div>
+        <div class="header__right-button">
+          <a href="#" onclick="signout()" class="btn-text signout">로그아웃
+            <i class="header__icon icon-arrows-right"></i>
+          </a>
+        </div>
+        <div class="header__right-button">
+          <a href="#" onclick="isSignIn()" class="btn-text">동행만들기
+            <i class="header__icon icon-arrows-right"></i>
+          </a>
+        </div>
       </div>
     </div>
     <div class="search">
@@ -30,37 +47,41 @@
         <div class="row">
           <div class="col-1-of-2">
             <div class="search-bar">
-              <input type="text" class="search-bar__input" placeholder="도시">
+              <input type="text" class="search-bar__input" id="selectedCity" placeholder="도시">
             </div>
           </div>
           <div class="col-1-of-2">
             <div class="search-bar">
-              <input type="text" class="search-bar__input" placeholder="장소">
+              <input type="text" class="search-bar__input" id="selectedPlace" placeholder="장소">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-1-of-4">
-            <div class="search-bar">
-              <input type="text" class="search-bar__input" placeholder="날짜">
+            <div class="t-datepicker">
+              <div class="t-check-in t-picker-only" id="selectedDate"></div>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="text" class="search-bar__input" placeholder="시간">
+              <input type="time" class="search-bar__input" id="selectedTIme" placeholder="시간">
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="text" class="search-bar__input" placeholder="희망인원">
+              <input type="number" class="search-bar__input" id="selectedHowMany" placeholder="희망인원">
             </div>
           </div>
           <div class="col-1-of-4">
-            <button class="btn btn--color">검색</button>
+            <button class="btn btn--color2" id="searchButton">검색</button>
           </div>
+
         </div>
       </div>
     </div>
+
+
+
   </main>
 
   <footer class=footer>
@@ -122,7 +143,12 @@
         </ul>
       </div>
   </footer>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+  <script src="./js/firebase.js"></script>
   <script type="text/javascript" src="./js/main.js"></script>
+  <script>
+  </script>
 </body>
 
 </html>

@@ -1,3 +1,7 @@
+.signout {
+  display: none;
+}
+
 .main {
   height: 80vh;
   position: relative;
@@ -17,22 +21,23 @@
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
   height: 10%;
   &__left {
-    display: flex;
+    padding: 2rem;
+    float: left;
   }
   &__right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 3rem;
+    padding: 2.5rem;
+    &-button {
+      float: right;
+      &:not(:last-child){
+        margin-right: 2.5rem;
+      }
+    }
   }
   &__logo {
     //임시 로고
-    margin-top: 1.4rem;
-    margin-left: 3rem;
     font-family: 'Song Myung', serif;
     font-size: 3.5rem;
     transition: all 2s;

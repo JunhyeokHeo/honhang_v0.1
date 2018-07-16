@@ -1,0 +1,30 @@
+.section-make {
+  width: 100%;
+  height: 90vh;
+  background-color: $color-grey-light-2;
+}
+
+.makeup {
+  width: 70%;
+  margin: 0 auto;
+  padding: 10rem 0;
+
+  &__title {
+    font-size: 3rem;
+    color: $color-grey-dark-3
+  }
+  
+  &__form {
+    width: 100%;
+    &-input {
+      display: block;
+      width: 50%;
+      height: 5rem;
+
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  
+}
