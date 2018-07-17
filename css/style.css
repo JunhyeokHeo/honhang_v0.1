@@ -39,14 +39,32 @@ body {
 
 body {
   font-family: 'Gothic A1', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.7;
   color: #333; }
 
 .heading-primary {
-  font-family: 'Song Myung', serif;
-  font-size: 5rem;
+  font-family: 'Gothic A1', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.4;
   margin-bottom: 6rem; }
+  .heading-primary--white {
+    color: #fff; }
+
+.heading-english {
+  font-family: 'Lato', serif;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem; }
+  .heading-english--white {
+    color: #fff; }
+  .heading-english--tertiary {
+    color: #FCC7C3; }
+
+.para {
+  font-family: 'Gothic A1', serif;
+  font-size: 1.4rem; }
 
 .search-bar__input {
   font-size: 1.5rem;
@@ -115,7 +133,8 @@ body {
 
 .btn--white {
   background: #fff;
-  color: #999; }
+  color: #999;
+  width: 10rem; }
   .btn--white::after {
     background: #fff; }
 
@@ -186,91 +205,234 @@ body {
     visibility: hidden;
     transform: translateY(-4rem); }
 
-.card {
+.card-signin {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 55%;
-  height: 55rem;
+  width: 50%;
+  height: 50rem;
   border-radius: 5px;
-  box-shadow: 0 1rem 3rem #000;
-  background-color: #fff; }
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  overflow: hidden; }
+
+.card {
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 50rem; }
+  .card__side {
+    transition: all 0.8s ease-in-out;
+    height: 50rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+    backface-visibility: hidden;
+    -moz-backface-visibility: hidden; }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0); }
+  .card__picture {
+    background-size: cover;
+    height: 50rem;
+    background-blend-mode: screen; }
+    .card__picture--1 {
+      background-image: url(../img/travel_1.jpg);
+      background-size: cover; }
+    .card__picture--2 {
+      background-image: url(../img/travel_2.jpg);
+      background-size: cover; }
+    .card__picture--3 {
+      background-image: url(../img/travel_3.jpg);
+      background-size: cover; }
+  .card__heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #fff;
+    text-align: left;
+    position: absolute;
+    bottom: 2rem;
+    left: 1rem;
+    width: 100%; }
+  .card__heading--span {
+    padding: 1rem 1.5rem; }
+  .card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center; }
 
 .signout {
   display: none; }
 
 .main {
-  height: 80vh;
-  position: relative; }
+  width: 100%;
+  height: 100vh; }
+
+.section-intro {
+  width: 100%;
+  height: 40rem;
+  background-color: #fff;
+  padding-top: 5rem; }
+
+.section-category {
+  width: 100%;
+  height: 70rem;
+  background-color: #f7f7f7;
+  padding-top: 10rem; }
+
+.section-social {
+  width: 100%;
+  height: 15rem;
+  background-color: #fff;
+  padding-top: 5rem; }
 
 .bg-image {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  background-image: url("../img/main-background.jpg");
-  background-size: cover;
-  z-index: -1;
-  opacity: 0.8;
-  overflow: hidden; }
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1; }
+  .bg-image__pic {
+    width: 100%;
+    height: 100vh;
+    filter: brightness(60%);
+    animation: zoom-in 10s linear;
+    backface-visibility: hidden; }
+
+.header-container {
+  width: 100%;
+  height: 10rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1; }
+  .header-container.scrolled {
+    background-color: #fff !important;
+    transition: background-color 0.15s linear;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1); }
+    .header-container.scrolled .heading-english--white {
+      color: #000 !important; }
+    .header-container.scrolled .heading-english--tertiary {
+      color: #FF5A4D !important; }
+    .header-container.scrolled .header__box {
+      color: #000 !important; }
 
 .header {
-  width: 100%;
-  height: 10%; }
+  padding-top: 3rem;
+  margin: 0 auto;
+  width: 120rem; }
   .header__left {
-    padding: 2rem;
     float: left; }
-  .header__right {
-    padding: 2.5rem; }
-    .header__right-button {
-      float: right; }
-      .header__right-button:not(:last-child) {
-        margin-right: 2.5rem; }
+  .header__right-button {
+    float: right;
+    padding-top: 1rem;
+    transition: all .2s; }
+    .header__right-button:not(:first-child) {
+      margin-right: 3rem; }
+    .header__right-button:hover {
+      transform: translateY(-0.3rem); }
   .header__logo {
-    font-family: 'Song Myung', serif;
-    font-size: 3.5rem;
-    transition: all 2s; }
-    .header__logo:hover {
-      letter-spacing: 1rem; }
+    width: 14rem;
+    height: auto; }
+  .header__box {
+    margin-top: 1.4rem;
+    background-color: #fff;
+    width: 1px;
+    height: 1.5rem; }
   .header__icon {
-    font-size: 2.6rem;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-    transform: translateY(30%); }
+    margin-left: 0.2rem;
+    padding-top: 0.4rem;
+    width: 1.5rem;
+    height: 1.5rem; }
 
 .search {
-  margin-top: 15rem; }
+  width: 100%;
+  height: 100vh;
+  padding-top: 40rem; }
   .search__text {
     text-align: center; }
   .search__container {
+    padding-top: 12rem;
     margin: 0 auto;
-    width: 60%; }
+    width: 50%; }
+  .search__input {
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
+  .search__label {
+    margin-left: 0.5rem;
+    font-size: 1.2rem;
+    color: #fff; }
+
+.intro {
+  width: 30%;
+  padding-top: 3rem;
+  text-align: center;
+  margin: 0 auto; }
+
+.social {
+  width: 100%;
+  text-decoration: none;
+  color: #333; }
+  .social__logo {
+    float: left;
+    margin: 0.7rem 1rem 0 10rem;
+    width: 2.2rem;
+    height: auto; }
+  .social h2 {
+    float: left;
+    font-size: 2rem;
+    font-family: 'Lato', serif;
+    font-weight: 200; }
 
 .footer {
-  width: 60%;
-  height: 20vh;
-  margin: 0 auto;
-  padding: 5rem 0;
-  font-size: 1.4rem; }
+  background-color: #333;
+  width: 100%;
+  height: 30rem;
+  font-size: 1.2rem;
+  color: #fff;
+  padding-top: 10rem;
+  font-weight: 100; }
+  .footer__logo {
+    width: 15rem;
+    height: auto; }
   .footer__list {
     list-style: none; }
   .footer__title {
-    font-size: 1.7rem;
-    font-weight: 800;
-    margin-bottom: 1rem; }
-  .footer__list-item:not(:last-child) {
-    margin-bottom: 0.3rem; }
+    color: #fff;
+    font-weight: 800; }
+  .footer__list-item {
+    color: #ccc; }
+    .footer__list-item:not(:last-child) {
+      margin-bottom: 0.3rem; }
   .footer__link:link, .footer__link:visited {
-    color: #999;
+    color: #ccc;
     text-decoration: none;
     transition: all .3s; }
   .footer__link:hover, .footer__link:active {
-    color: #000;
+    color: #FCC7C3;
     font-weight: 700;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
     transform: rotate(3deg) scale(1.3); }
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(1); }
+  100% {
+    transform: scale(1.1); } }
 
 .signin {
   width: 100%; }
@@ -284,12 +446,12 @@ body {
     width: 40%;
     height: 100%;
     background-image: url(../img/signin.jpg);
-    background-size: cover; }
-    .signin__right-logo {
-      padding-top: 10rem;
-      text-align: center;
-      font-family: 'Song Myung', serif;
-      font-size: 3.5rem; }
+    background-size: cover;
+    text-align: center; }
+  .signin__logo {
+    margin-top: 7rem;
+    width: 16rem;
+    height: auto; }
 
 .section-make {
   width: 100%;

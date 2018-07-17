@@ -21,7 +21,9 @@
 
 .t-datepicker-day {
   border-color: #ededed;
-  background: #fff; }
+  background: #fff;
+  
+}
 
 .t-day, .t-range, .t-start, .t-end, .t-disabled {
   background: #fafafa;

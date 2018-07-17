@@ -4,141 +4,239 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/icon-font.css">
-  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Song+Myung" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Lato" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/jquery.js"></script>
-  <!-- 날짜선택API -->
+  <!-- date picker API -->
   <link rel="stylesheet" href="./css/datepicker.min.css">
   <script src="./js/datepicker.min.js"></script>
-  
+
   <title>혼행</title>
 </head>
 
 <body>
   <main class="main">
-    <div class="bg-image"></div>
-    <div class="header">
-      <div class="header__left">
-        <div class="header__logo">혼행로고.</div>
-      </div>
-      <div class="header__right">
-        <div class="header__right-button">
-          <a href="pages/signin.html" class="btn-text signin">로그인
-            <i class="header__icon icon-arrows-right"></i>
+    <div class="bg-image">
+      <img src="./img/main_1.jpg" alt="background_main_1" class="bg-image__pic">
+      <img src="./img/main_2.jpg" alt="background_main_1" class="bg-image__pic">
+      <img src="./img/main_3.jpg" alt="background_main_1" class="bg-image__pic">
+    </div>
+    <div class="header-container">
+      <div class="header">
+        <div class="header__left">
+          <a href="index.html">
+            <img src="./img/logo-white.png" alt="logo" class="header__logo">
           </a>
         </div>
-        <div class="header__right-button">
-          <a href="#" onclick="signout()" class="btn-text signout">로그아웃
-            <i class="header__icon icon-arrows-right"></i>
-          </a>
-        </div>
-        <div class="header__right-button">
-          <a href="#" onclick="isSignIn()" class="btn-text">동행만들기
-            <i class="header__icon icon-arrows-right"></i>
-          </a>
+        <div class="header__right">
+          <div class="header__right-button">
+            <a href="pages/signin.html" class="heading-english heading-english--white signin">LOGIN
+              <img src="./img/down-arrow.png" alt="icon" class="header__icon">
+            </a>
+          </div>
+          <div class="header__right-button">
+            <a href="#" onclick="signout()" class="heading-english heading-english--white signout">LOGOUT
+              <img src="./img/down-arrow.png" alt="icon" class="header__icon">
+            </a>
+          </div>
+          <div class="header__right-button header__box"></div>
+          <div class="header__right-button">
+            <a href="#" onclick="isSignIn()" class="heading-english heading-english--tertiary">MAKE CHANNEL</a>
+          </div>
+          <div class="header__right-button">
+            <a href="#section-social" class="heading-english heading-english heading-english--white">SOCIAL NETWORK</a>
+          </div>
+          <div class="header__right-button">
+            <a href="#section-intro" class="heading-english heading-english--white">CONTENTS</a>
+          </div>
+          <div class="header__right-button">
+            <a href="#section-category" class="heading-english heading-english--white">LOCAL MENTOR</a>
+          </div>
         </div>
       </div>
     </div>
     <div class="search">
       <div class="search__text">
-        <h1 class="heading-primary">혼자떠난여행. 혼자아닌여행.</h1>
+        <h1 class="heading-primary heading-primary--white">외롭지않은 나홀로 여행, 동행을 찾아보세요.</h1>
       </div>
       <div class="search__container">
         <div class="row">
           <div class="col-1-of-2">
             <div class="search-bar">
-              <input type="text" class="search-bar__input" id="selectedCity" placeholder="도시">
+              <label for="selectedCity" class="search__label">도시</label>
+              <input type="text" class="search-bar__input" id="selectedCity" placeholder="Seoul, south korea">
             </div>
           </div>
           <div class="col-1-of-2">
             <div class="search-bar">
-              <input type="text" class="search-bar__input" id="selectedPlace" placeholder="장소">
+              <label for="selectedPlace" class="search__label">장소</label>
+              <input type="text" class="search-bar__input" id="selectedPlace" placeholder="Namsan tower">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-1-of-4">
             <div class="t-datepicker">
+              <label for="selectedDate" class="search__label">날짜</label>
               <div class="t-check-in t-picker-only" id="selectedDate"></div>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="time" class="search-bar__input" id="selectedTIme" placeholder="시간">
+              <label for="selectedTIme" class="search__label">시간</label>
+              <input type="time" class="search-bar__input" id="selectedTIme">
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
-              <input type="number" class="search-bar__input" id="selectedHowMany" placeholder="희망인원">
+              <label for="selectedHowMany" class="search__label">희망인원</label>
+              <input type="number" class="search-bar__input" id="selectedHowMany" placeholder="2">
             </div>
           </div>
           <div class="col-1-of-4">
+            <label for="searchButton" class="search__label"> &nbsp;</label>
             <button class="btn btn--color2" id="searchButton">검색</button>
           </div>
-
         </div>
       </div>
     </div>
-
-
-
   </main>
+  <section class="section-intro" id="section-intro">
+    <div class="intro">
+      <div class="heading-primary">
+        혼자 떠나는, 혼자가 아닌 혼행.
+      </div>
+      <div class="para">
+        혼행이란 2018년 트렌드 키워드로‘주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것’을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있습니다. <br><br>혼행이란 2018년 트렌드 키워드로‘주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것’을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있습니다.
+      </div>
+    </div>
+  </section>
+  <section class="section-category" id="section-category">
+    <div class="row">
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--1">
+              &nbsp;
+            </div>
+            <h4 class="card__heading">
+              <span class="card__heading--span">현지 멘토 리스트.</span>
+            </h4>
+          </div>
+          <div class="card__side card__side--back card__side--back-1">
+            <div class="card__cta">
+              <a href="#" class="btn btn--white">더보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--2">
+              &nbsp;
+            </div>
+            <h4 class="card__heading">
+              <span class="card__heading--span">혼행 이야기.</span>
+            </h4>
+          </div>
+          <div class="card__side card__side--back card__side--back-2">
+            <div class="card__cta">
+              <a href="#popup" class="btn btn--white">더보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1-of-3">
+        <div class="card">
+          <div class="card__side card__side--front">
+            <div class="card__picture card__picture--3">
+              &nbsp;
+            </div>
+            <h4 class="card__heading">
+              <span class="card__heading--span">동행 채널.</span>
+            </h4>
+          </div>
+          <div class="card__side card__side--back card__side--back-3">
+            <div class="card__cta">
+              <a href="#popup" class="btn btn--white">더보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-social" id="section-social">
+    <div class="row">
+      <div class="col-1-of-3">
+        <a href="#" class="social">
+          <img src="./img/facebook-black.png" alt="facebook-black" class="social__logo">
+          <h2>FACEBOOK</h2>
+        </a>
+      </div>
+      <div class="col-1-of-3">
+        <a href="#" class="social">
+          <img src="./img/insta-black.png" alt="insta-black" class="social__logo">
+          <h2>INSTAGRAM</h2>
+        </a>
+      </div>
+      <div class="col-1-of-3">
+        <a href="#" class="social">
+          <img src="./img/kakao-black.png" alt="kakao-black" class="social__logo">
+          <h2>KAKAO</h2>
+        </a>
+      </div>
+
+    </div>
+  </section>
 
   <footer class=footer>
     <div class="row">
       <div class="col-1-of-4">
+        <img src="./img/logo-white.png" alt="logo" class="footer__logo">
+      </div>
+      <div class="col-1-of-4">
         <ul class="footer__list">
-          <li class="footer__title">SOCIAL</li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">페이스북</a>
-          </li>
+            <span class="footer__title">혼행 대표 :</span> 허준혁</li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">인스타그램</a>
-          </li>
+            <span class="footer__title">개인정보관리책임가 :</span> 허준혁</li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">카카오톡</a>
+            <span class="footer__title">사업자등록번호 :</span> 000-00-00000</li>
+          <li class="footer__list-item">
+            <span class="footer__title">통신판매업신고 :</span> 2018-서울강남-00000</li>
+          <li class="footer__list-item">
+            <span class="footer__title">주소 :</span> 인천광역시 연수구 선학로 000</li>
+          <li class="footer__list-item">2018 &copy;Copyright Honhang. ALL right reserved</li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">CONTACT US</li>
+          <li class="footer__list-item">032-000-0000</li>
+          <li class="footer__list-item">AM 10:00 ~ PM 6:00</li>
+          <li class="footer__list-item">제휴문의 gjwnsgur91@naver.com</li>
+          <li class="footer__title">BANK INFO</li>
+          <li class="footer__list-item">
+            국민 660402-01-513947 예금주 허준혁
           </li>
         </ul>
       </div>
       <div class="col-1-of-4">
         <ul class="footer__list">
-          <li class="footer__title">COMPANY</li>
+          <li class="footer__title">INFOMATION</li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">회사소개</a>
+            <a href="#" class="footer__list-item footer__link">회사소개</a>
           </li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">연혁</a>
+            <a href="#" class="footer__list-item footer__link">서비스 이용약관</a>
           </li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">연락처</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-1-of-4">
-        <ul class="footer__list">
-          <li class="footer__title">HELP</li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__link">QnA</a>
+            <a href="#" class="footer__list-item footer__link">개인정보 취급정책</a>
           </li>
           <li class="footer__list-item">
-            <a href="#" class="footer__link">의견조율</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__link">문의하기</a>
-          </li>
-        </ul>
-      </div>
-      <div class="col-1-of-4">
-        <ul class="footer__list">
-          <li class="footer__title">LEGAL</li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__link">약관</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__link">사생활 정책</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__link">라이센스</a>
+            <a href="#" class="footer__list-item footer__link">운영정책</a>
           </li>
         </ul>
       </div>
@@ -146,7 +244,7 @@
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
   <script src="./js/firebase.js"></script>
-  <script type="text/javascript" src="./js/main.js"></script>
+  <script type="text/javascript" src="./js/index.js"></script>
   <script>
   </script>
 </body>

@@ -1,12 +1,35 @@
 body {
   font-family: 'Gothic A1', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.7;
   color: $color-grey-dark-3;
 }
 
 .heading-primary {
-  font-family: 'Song Myung', serif;
-  font-size: 5rem;
+  font-family: 'Gothic A1', serif;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.4;
   margin-bottom: 6rem;
+  &--white {
+    color: $color-white
+  }
+}
+
+.heading-english {
+  font-family: 'Lato', serif;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.25rem;
+  &--white{
+    color: $color-white;
+  }
+  &--tertiary{
+    color: $color-tertiary-light;
+  }
+}
+
+.para {
+  font-family: 'Gothic A1', serif;
+  font-size: 1.4rem;
 }

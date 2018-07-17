@@ -1,25 +1,22 @@
-.signin{
+.signin {
   width: 100%;
-
-  &__left{
+  &__left {
     float: left;
     width: 60%;
     height: 100%;
     padding: 3rem 10rem;
   }
-
-  &__right{
+  &__right {
     float: right;
     width: 40%;
     height: 100%;
     background-image: url(../img/signin.jpg);
     background-size: cover;
-
-    &-logo {
-      padding-top: 10rem;
-      text-align: center;
-      font-family: 'Song Myung', serif;
-      font-size: 3.5rem;
-    }
+    text-align: center;
+  }
+  &__logo {
+    margin-top: 7rem;
+    width: 16rem;
+    height: auto;
   }
 }
