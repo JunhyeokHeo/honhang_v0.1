@@ -11,9 +11,15 @@
 
 <body>
   <main>
+    <div class="signin-bg-image"></div>
     <div class="card-signin">
       <div class="signin">
         <div class="signin__left">
+          <div class="signin__text">
+            <div class="heading-primary u-margin-bottom-2">SIGNUP</div>
+            <div class="para">원하시는 아이디와 비밀번호를
+              <br>입력해주세요.</div>
+          </div>
           <div class="form">
             <div class="form__group">
               <input type="email" class="form__input" placeholder="Email" id="email" autocomplete="off" required>
@@ -23,13 +29,13 @@
               <input type="password" class="form__input" placeholder="password" id="password" autocomplete="off" required>
               <label for="password" class="form__label">비밀번호를 입력해주세요.</label>
             </div>
-            <button onclick="signup()" class="btn btn--color">회원가입</button>
+            <button onclick="signup()" class="btn btn--color u-margin-top-2">간편 회원가입</button>
           </div>
-          <a href="signin.html" class="btn-text">이미 아이디가 있으시다구요?</a>
+          <a href="signin.html" class="btn-text u-margin-top-2">이미 아이디가 있으시다구요?</a>
         </div>
         <div class="signin__right">
-            <img src="../img/logo-white.png" alt="logo-white" class="signin__logo">
-          </div>
+          <img src="../img/logo-white.png" alt="logo-white" class="signin__logo">
+        </div>
       </div>
     </div>
 

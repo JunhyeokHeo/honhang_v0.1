@@ -10,9 +10,7 @@ const inputTextHowMany = document.querySelector('#selectedHowMany');
 searchButton.addEventListener('click', function () {
   var selectedCity = inputTextCity.value;
   var selectedPlace = inputTextPlace.value;
-  var selectedDate = document.querySelector('.t-day-check-in').innerHTML +
-    document.querySelector('.t-month-check-in').innerHTML +
-    document.querySelector('.t-year-check-in').innerHTML;
+  var selectedDate = inputTextDate.value;
   var selectedTIme = inputTextTime.value;
   var selectedHowMany = inputTextHowMany.value;
 
@@ -40,39 +38,81 @@ function isSignIn() {
   }
 }
 //nav bar toggle
-$(function () {
-  $(document).scroll(function () {
-    var $nav = $(".header-container");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+var scrollState = true;
+$(window).scroll(function () {
+  var nav = $(".header-container");
 
-    if ($nav.hasClass("scrolled")) {
-      $(".header__logo").attr("src", "./img/logo-black.png");
-    } else {
-      $(".header__logo").attr("src", "./img/logo-white.png");
-    }
-  });
+  if ($(window).scrollTop() > nav.height() && scrollState == true) {
+    nav.addClass('scrolled');
+    $(".header__logo").attr("src", "./img/logo-black.png");
+    $(".header__icon").attr("src", "./img/down-arrow-black.png");
+    scrollState = false;
+  } else if ($(window).scrollTop() <= nav.height() && scrollState == false) {
+    nav.removeClass('scrolled');
+    $(".header__icon").attr("src", "./img/down-arrow.png");
+    $(".header__logo").attr("src", "./img/logo-white.png");
+    scrollState = true;
+  }
 });
+
+//nav bar navigate
+
+$('.scrollNavi-social').find('a').on("click", function () {
+  $('html, body').animate({
+    scrollTop: $('.section-social').offset().top
+  }, 1000)
+});
+$('.scrollNavi-intro').find('a').on("click", function () {
+  $('html, body').animate({
+    scrollTop: $('.section-intro').offset().top - 300
+  }, 1000)
+});
+$('.scrollNavi-category').find('a').on("click", function () {
+  $('html, body').animate({
+    scrollTop: $('.section-category').offset().top - 100
+  }, 1000)
+});
+
 //date picker API
-$(document).ready(function () {
-  $(".t-datepicker").tDatePicker({
-    autoClose: true,
-    limitNextMonth: 3,
-    numCalendar: 1,
-    dateRangesHover: false
-  })
+$('#selectedDate').fdatepicker({
+  format: 'yyyy/mm/dd'
 });
 
-
+//image slider
 var imageIndex = 0;
+
 function imageSlide() {
   const images = $(".bg-image__pic");
-  images.each(function(pic) {
+  images.each(function (pic) {
     images[pic].style.display = "none";
   });
   imageIndex++;
-  if(imageIndex > images.length ) { imageIndex = 1 };
-  images[imageIndex-1].style.display = "block";
+  if (imageIndex > images.length) {
+    imageIndex = 1
+  };
+  images[imageIndex - 1].style.display = "block";
   setTimeout(imageSlide, 10000);
 }
 
 imageSlide();
+
+//time picker API
+$(document).ready(function () {
+  $('#selectedTIme').timepicker({
+    timeFormat: 'h:mm p', //1:00 PM
+    interval: 30, //시간간격
+    minTime: '7', //최소시간
+    maxTime: '8:00pm', //최대시간
+    startTime: '7:00', //최소시간
+    dynamic: false,
+    dropdown: true,
+    scrollbar: false
+  });
+});
+
+//datalist
+$(document).ready(function () {
+  $('#selectedHowMany').click(function () {
+    $(this).val(undefined);
+  })
+})

@@ -1,0 +1,232 @@
+<html lang="en">
+
+<head>
+  <!-- 동행 리스트 페이지 **********************************
+    1. 제이쿼리를 이용한 탭메뉴
+    2. 동행리스트는 체크박스를 이용한 아코디언 메뉴로 구현
+    3. label에 trigger click 발생
+  ************************************************* -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/icon-font.css">
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Lato" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/jquery.js"></script>
+  <!-- date picker API -->
+  <link rel="stylesheet" href="../css/datepicker.min.css">
+  <script src="../js/datepicker.min.js"></script>
+  <!-- time picker API -->
+  <link rel="stylesheet" href="../node_modules/jquery-timepicker/jquery.timepicker.css">
+  <script src="../node_modules/jquery-timepicker/jquery.timepicker.js"></script>
+
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+  <title>혼행</title>
+</head>
+
+<body>
+  <main>
+    <div class="header-container-white">
+      <div class="header">
+        <div class="header__left">
+          <a href="../index.html">
+            <img src="../img/logo-black.png" alt="logo" class="header__logo-black">
+          </a>
+        </div>
+        <div class="header__right">
+          <div class="header__right-button">
+            <a href="pages/signin.html" class="heading-english signin">LOGIN
+              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
+            </a>
+          </div>
+          <div class="header__right-button">
+            <a href="#" onclick="signout()" class="heading-english signout">LOGOUT
+              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
+            </a>
+          </div>
+          <div class="header__right-button header__box"></div>
+          <div class="header__right-button">
+            <a href="#" onclick="isSignIn()" class="heading-english heading-english--tertiary-dark">MAKE CHANNEL</a>
+          </div>
+          <div class="header__right-button">
+            <a href="../index.html" class="heading-english heading-english">SOCIAL NETWORK</a>
+          </div>
+          <div class="header__right-button">
+            <a href="../index.html" class="heading-english">CONTENTS</a>
+          </div>
+          <div class="header__right-button">
+            <a href="../index.html" class="heading-english">LOCAL MENTOR</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <section class="section-back-nav"></section>
+
+  <section class="section-title">
+    <div class="heading-primary heading-primary--white">동행 리스트</div>
+  </section>
+
+  <section class="section-makeup">
+    <div class="small-nav">
+      <div class=nav-row>
+        <div class="nav-row__pages para para--bold">홈</div>
+        <div class="nav-row__pages small-para">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</div>
+        <div class="nav-row__pages para para--bold">동행 리스트</div>
+      </div>
+    </div>
+    <div class="test"></div>
+  </section>
+
+  <div class="section-board">
+    <div class="board">
+      <ul class="board__menu-all">
+        <li class="board__menu heading-secondary board__on">
+          결과
+        </li>
+        <li class="board__menu heading-secondary">
+          도시
+        </li>
+        <li class="board__menu heading-secondary">
+          장소
+        </li>
+        <li class="board__menu heading-secondary">
+          날짜/시간
+        </li>
+        <li class="board__menu heading-secondary">
+          동행인원
+        </li>
+      </ul>
+      <div>
+        <ul class="board__list">
+          <li class="board__list-item">
+            <input type="checkbox" class="board__check-box" id="board__toggle">
+            <label for="board__toggle" class="board__list-label heading-tertiary">
+              바뀔내용리스트 - 결과1
+              <img src="../img/down-arrow-black.png" alt="arrow-down" class="header__icon">
+            </label>
+            <div class="board__content para">
+              <p>결과1</p>
+            </div>
+          </li>
+          <li class="board__list-item">
+            <input type="checkbox" class="board__check-box" id="board__toggle2">
+            <label for="board__toggle2" class="board__list-label heading-tertiary">
+              바뀔내용리스트 - 결과2
+              <img src="../img/down-arrow-black.png" alt="arrow-down" class="header__icon">
+            </label>
+            <div class="board__content para">
+              결과2
+            </div>
+          </li>
+        </ul>
+        <ul class="board__list">
+          <li class="board__list-item">
+            <input type="checkbox" class="board__check-box" id="board__toggle">
+            <label for="board__toggle" class="board__list-label heading-tertiary">
+              바뀔내용리스트 - 도시1
+              <img src="../img/down-arrow-black.png" alt="arrow-down" class="header__icon">
+            </label>
+            <div class="board__content para">
+              도시1
+            </div>
+          </li>
+        </ul>
+        <ul class="board__list">
+          <li class="board__list-item">
+            <input type="checkbox" class="board__check-box" id="board__toggle">
+            <label for="board__toggle" class="board__list-label heading-tertiary">
+              바뀔내용리스트 - 장소1
+              <img src="../img/down-arrow-black.png" alt="arrow-down" class="header__icon">
+            </label>
+            <div class="board__content para">
+              장소1
+            </div>
+          </li>
+        </ul>
+        <ul class="board__list">
+          <li class="board__list-item">
+            <input type="checkbox" class="board__check-box" id="board__toggle">
+            <label for="board__toggle" class="board__list-label heading-tertiary">
+              바뀔내용리스트 - 날짜/시간1
+              <img src="../img/down-arrow-black.png" alt="arrow-down" class="header__icon">
+            </label>
+            <div class="board__content para">
+              날짜/시간1
+            </div>
+          </li>
+        </ul>
+        <ul class="board__list">
+          <li class="board__list-item">
+            <input type="checkbox" class="board__check-box" id="board__toggle">
+            <label for="board__toggle" class="board__list-label heading-tertiary">
+              바뀔내용리스트 - 동행인원1
+              <img src="../img/down-arrow-black.png" alt="arrow-down" class="header__icon">
+            </label>
+            <div class="board__content para">
+              동행인원1
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer class=footer>
+    <div class="row">
+      <div class="col-1-of-4">
+        <img src="../img/logo-white.png" alt="logo" class="footer__logo">
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__list-item">
+            <span class="footer__title">혼행 대표 :</span> 허준혁</li>
+          <li class="footer__list-item">
+            <span class="footer__title">개인정보관리책임가 :</span> 허준혁</li>
+          <li class="footer__list-item">
+            <span class="footer__title">사업자등록번호 :</span> 000-00-00000</li>
+          <li class="footer__list-item">
+            <span class="footer__title">통신판매업신고 :</span> 2018-서울강남-00000</li>
+          <li class="footer__list-item">
+            <span class="footer__title">주소 :</span> 인천광역시 연수구 선학로 000</li>
+          <li class="footer__list-item">2018 &copy;Copyright Honhang. ALL right reserved</li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">CONTACT US</li>
+          <li class="footer__list-item">032-000-0000</li>
+          <li class="footer__list-item">AM 10:00 ~ PM 6:00</li>
+          <li class="footer__list-item">제휴문의 gjwnsgur91@naver.com</li>
+          <li class="footer__title">BANK INFO</li>
+          <li class="footer__list-item">
+            국민 660402-01-513947 예금주 허준혁
+          </li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">INFOMATION</li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">회사소개</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">서비스 이용약관</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">개인정보 취급정책</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">운영정책</a>
+          </li>
+        </ul>
+      </div>
+  </footer>
+
+  <script src="../js/firebase.js"></script>
+  <script type="text/javascript" src="../js/board.js"></script>
+
+</body>
+
+</html>

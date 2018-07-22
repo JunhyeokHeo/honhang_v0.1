@@ -4,51 +4,194 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/icon-font.css">
-  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Song+Myung" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Lato" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="../js/jquery.js"></script>
+  <!-- date picker API -->
+  <link rel="stylesheet" href="../css/datepicker.css">
+  <script src="../js/datepicker.js"></script>
+  <!-- time picker API -->
+  <link rel="stylesheet" href="../node_modules/jquery-timepicker/jquery.timepicker.css">
+  <script src="../node_modules/jquery-timepicker/jquery.timepicker.js"></script>
+
+  <!-- firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
   <title>혼행</title>
 </head>
 
 <body>
   <main>
-    <div class="header">
-      <div class="header__left">
-        <div class="header__logo">혼행로고.</div>
-      </div>
-      <div class="header__right">
-        <div class="header__right-button">
-          <a href="pages/signin.html" class="btn-text signin">로그인
-            <i class="header__icon icon-arrows-right"></i>
+    <div class="header-container-white">
+      <div class="header">
+        <div class="header__left">
+          <a href="../index.html">
+            <img src="../img/logo-black.png" alt="logo" class="header__logo-black">
           </a>
         </div>
-        <div class="header__right-button">
-          <a href="#" onclick="signout()" class="btn-text signout">로그아웃
-            <i class="header__icon icon-arrows-right"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="section-make">
-      <div class="makeup">
-        <div class="makeup__title">
-          동행 만들기
-        </div>
-        <div class="makeup__form">
-          <input type="text" placeholder="어떤 도시인가요?" class="makeup__form-input">
-          <input type="text" placeholder="어디에 가실거죠?" class="makeup__form-input">
-          <input type="date" placeholder="언제가실 건가요?" class="makeup__form-input">
-          <input type="time" placeholder="몇시에 떠나세요?" class="makeup__form-input">
-          <input type="number" placeholder="희망인원이 있으신가요?" class="makeup__form-input">
-          <button class="btn btn--color">확인</button>
+        <div class="header__right">
+          <div class="header__right-button">
+            <a href="pages/signin.html" class="heading-english signin">LOGIN
+              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
+            </a>
+          </div>
+          <div class="header__right-button">
+            <a href="#" onclick="signout()" class="heading-english signout">LOGOUT
+              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
+            </a>
+          </div>
+          <div class="header__right-button header__box"></div>
+          <div class="header__right-button">
+            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary-dark">MAKE CHANNEL</a>
+          </div>
+          <div class="header__right-button">
+            <a href="../index.html" class="heading-english heading-english">SOCIAL NETWORK</a>
+          </div>
+          <div class="header__right-button">
+            <a href="../index.html" class="heading-english">CONTENTS</a>
+          </div>
+          <div class="header__right-button">
+            <a href="../index.html" class="heading-english">LOCAL MENTOR</a>
+          </div>
         </div>
       </div>
     </div>
   </main>
+  <section class="section-back-nav"></section>
 
+  <section class="section-title">
+    <div class="heading-primary heading-primary--white">동행 커뮤니티 만들기</div>
+  </section>
 
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+  <section class="section-makeup">
+    <div class="small-nav">
+      <div class=nav-row>
+        <div class="nav-row__pages para para--bold">홈</div>
+        <div class="nav-row__pages small-para">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</div>
+        <div class="nav-row__pages para para--bold">동행 만들기</div>
+      </div>
+    </div>
+    <div class="makeup-progress">
+      <div class="makeup-progress__text heading-big">
+        MAKE CHANNEL
+      </div>
+      <div class="makeup-progress__text--small para">
+        안전한 동행 커뮤니티 만들기
+      </div>
+
+      <div class="makeup-progress__ing">
+        <div class="makeup-progress__icon-box">
+          <img src="../img/icon-id.png" alt="icon-id" class="makeup-progress__icon">
+          <p class="para">신원 증명</p>
+        </div>
+        <div class="makeup-progress__icon-box">
+          <img src="../img/icon-document.png" alt="icon-document" class="makeup-progress__icon">
+          <p class="para">동행 정보 작성</p>
+        </div>
+        <div class="makeup-progress__icon-box">
+          <img src="../img/icon-schedule.png" alt="icon-schedule" class="makeup-progress__icon">
+          <p class="para">커뮤니티 등록</p>
+        </div>
+      </div>
+    </div>
+    <div class="makeup">
+      <div class="makeup__form">
+        <h2 class="makeup__text">제목 :</h2>
+        <input type="text" class="makeup__input para" id="selectedTitle" placeholder="게시글 제목">
+      </div>
+      <div class="makeup__form">
+        <h2 class="makeup__text">도시 :</h2>
+        <input type="text" class="makeup__input para" id="selectedCity" placeholder="파리">
+      </div>
+      <div class="makeup__form">
+        <h2 class="makeup__text">장소 :</h2>
+        <input type="text" class="makeup__input para" id="selectedPlace" placeholder="에펠탑">
+      </div>
+      <div class="makeup__form">
+        <h2 class="makeup__text">날짜 :</h2>
+        <input type="text" class="makeup__input para" id="selectedDate" placeholder="2020/07/19">
+      </div>
+      <div class="makeup__form">
+        <h2 class="makeup__text">시간 :</h2>
+        <input class="makeup__input para" id="selectedTIme" placeholder="8:00 AM">
+      </div>
+      <div class="makeup__form">
+        <h2 class="makeup__text">희망 동행인원 :</h2>
+        <input list="number" class="makeup__input para" id="selectedHowMany" placeholder="2" />
+        <datalist id="number">
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+          <option value="4"></option>
+          <option value="5"></option>
+          <option value="6"></option>
+          <option value="7"></option>
+          <option value="8"></option>
+          <option value="9"></option>
+        </datalist>
+      </div>
+      <div class="makeup__form">
+        <h2 class="makeup__text">동행장의 말 :</h2>
+        <textarea class="makeup__input para makeup__textarea" id="selectedContent" placeholder="하고싶은 말을 적어주세요~"></textarea>
+      </div>
+      <div class="makeup__buttons">
+        <button class="btn btn--white-small">취소</button>
+        <button class="btn btn--color-small" id="makeupButton">확인</button>
+      </div>
+    </div>
+
+  </section>
+  <footer class=footer>
+    <div class="row">
+      <div class="col-1-of-4">
+        <img src="../img/logo-white.png" alt="logo" class="footer__logo">
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__list-item">
+            <span class="footer__title">혼행 대표 :</span> 허준혁</li>
+          <li class="footer__list-item">
+            <span class="footer__title">개인정보관리책임가 :</span> 허준혁</li>
+          <li class="footer__list-item">
+            <span class="footer__title">사업자등록번호 :</span> 000-00-00000</li>
+          <li class="footer__list-item">
+            <span class="footer__title">통신판매업신고 :</span> 2018-서울강남-00000</li>
+          <li class="footer__list-item">
+            <span class="footer__title">주소 :</span> 인천광역시 연수구 선학로 000</li>
+          <li class="footer__list-item">2018 &copy;Copyright Honhang. ALL right reserved</li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">CONTACT US</li>
+          <li class="footer__list-item">032-000-0000</li>
+          <li class="footer__list-item">AM 10:00 ~ PM 6:00</li>
+          <li class="footer__list-item">제휴문의 gjwnsgur91@naver.com</li>
+          <li class="footer__title">BANK INFO</li>
+          <li class="footer__list-item">
+            국민 660402-01-513947 예금주 허준혁
+          </li>
+        </ul>
+      </div>
+      <div class="col-1-of-4">
+        <ul class="footer__list">
+          <li class="footer__title">INFOMATION</li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">회사소개</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">서비스 이용약관</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">개인정보 취급정책</a>
+          </li>
+          <li class="footer__list-item">
+            <a href="#" class="footer__list-item footer__link">운영정책</a>
+          </li>
+        </ul>
+      </div>
+  </footer>
+
   <script src="../js/firebase.js"></script>
   <script type="text/javascript" src="../js/makeup.js"></script>
 

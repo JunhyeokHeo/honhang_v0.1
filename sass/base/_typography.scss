@@ -4,13 +4,40 @@ body {
   line-height: 1.7;
   color: $color-grey-dark-3;
 }
+.heading-big {
+  font-family: 'Gothic A1', serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
 
 .heading-primary {
   font-family: 'Gothic A1', serif;
   font-weight: 600;
   font-size: 2rem;
   line-height: 1.4;
-  margin-bottom: 6rem;
+  
+  &--white {
+    color: $color-white
+  }
+}
+
+.heading-secondary {
+  font-family: 'Gothic A1', serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  
+  &--white {
+    color: $color-white
+  }
+}
+
+.heading-tertiary {
+  font-family: 'Gothic A1', serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  
   &--white {
     color: $color-white
   }
@@ -19,17 +46,33 @@ body {
 .heading-english {
   font-family: 'Lato', serif;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.25rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: $color-grey-dark-3;
+
   &--white{
     color: $color-white;
   }
-  &--tertiary{
-    color: $color-tertiary-light;
+  &--primary{
+    color: $color-primary-light;
+  }
+  &--primary-dark{
+    color: $color-primary-dark;
   }
 }
 
 .para {
   font-family: 'Gothic A1', serif;
   font-size: 1.4rem;
+
+  &--bold {
+    font-weight: 700;
+  }
+}
+
+.small-para {
+  margin-top: 0.2rem;
+  font-family: 'Gothic A1', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
 }

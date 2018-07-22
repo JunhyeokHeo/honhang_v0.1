@@ -10,35 +10,32 @@
 </head>
 
 <body>
-  <main>
-    <div class="bg-video">
-      <video class="bg-video__content" autoplay muted loop>
-        <source src="../img/street.mp4" type="video/mp4">
-        <source src="../img/street.webm" type="video/webm">
-      </video>
-    </div>
-
+  <main>  
+    <div class="signin-bg-image"></div>
     <div class="card-signin">
       <div class="signin">
         <div class="signin__left">
-          <div class="form"></div>
-          <div class="form__group">
-            <input type="email" class="form__input" placeholder="Email" id="email" autocomplete="off" required>
-            <label for="email" class="form__label">이메일을 입력해주세요.</label>
+          <div class="signin__text">
+            <div class="heading-primary u-margin-bottom-2">LOGIN</div>
+            <div class="para">기존회원이시면 아이디와 비밀번호를 <br>입력해주세요.</div>
           </div>
-          <div class="form__group">
-            <input type="password" class="form__input" placeholder="password" id="password" autocomplete="off" required>
-            <label for="password" class="form__label">비밀번호를 입력해주세요.</label>
+          <div class="form">
+            <div class="form__group">
+              <input type="email" class="form__input" placeholder="Email" id="email" autocomplete="off" required>
+              <label for="email" class="form__label">이메일을 입력해주세요.</label>
+            </div>
+            <div class="form__group">
+              <input type="password" class="form__input" placeholder="password" id="password" autocomplete="off" required>
+              <label for="password" class="form__label">비밀번호를 입력해주세요.</label>
+            </div>
+            <button onclick="signin()" class="btn btn--color u-margin-top-2">로그인</button>
+            <a href="signup.html" class="btn-text u-margin-top-2">아이디가 없으시다면? &nbsp; 간편회원가입</a>
           </div>
-          <button onclick="signin()" class="btn btn--color">로그인</button>
-          <button onclick="signout()" class="btn btn--color signout">로그아웃</button>
-          <a href="signup.html" class="btn-text">회원가입하기</a>
+        </div>
+        <div class="signin__right">
+          <img src="../img/logo-white.png" alt="logo-white" class="signin__logo">
         </div>
       </div>
-      <div class="signin__right">
-        <img src="../img/logo-white.png" alt="logo-white" class="signin__logo">
-      </div>
-    </div>
     </div>
 
   </main>

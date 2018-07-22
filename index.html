@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/icon-font.css">
+  <link rel="stylesheet" href="./css/icon-font.css">
   <link href="https://fonts.googleapis.com/css?family=Gothic+A1|Lato" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/jquery.js"></script>
   <!-- date picker API -->
-  <link rel="stylesheet" href="./css/datepicker.min.css">
-  <script src="./js/datepicker.min.js"></script>
+  <link rel="stylesheet" href="./css/datepicker.css">
+  <script src="./js/datepicker.js"></script>
+  <!-- time picker API -->
+  <link rel="stylesheet" href="./node_modules/jquery-timepicker/jquery.timepicker.css">
+  <script src="./node_modules/jquery-timepicker/jquery.timepicker.js"></script>
 
   <title>혼행</title>
 </head>
@@ -41,16 +44,16 @@
           </div>
           <div class="header__right-button header__box"></div>
           <div class="header__right-button">
-            <a href="#" onclick="isSignIn()" class="heading-english heading-english--tertiary">MAKE CHANNEL</a>
+            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary">MAKE CHANNEL</a>
           </div>
-          <div class="header__right-button">
-            <a href="#section-social" class="heading-english heading-english heading-english--white">SOCIAL NETWORK</a>
+          <div class="header__right-button scrollNavi-social">
+            <a href="#" class="heading-english heading-english heading-english--white">SOCIAL NETWORK</a>
           </div>
-          <div class="header__right-button">
-            <a href="#section-intro" class="heading-english heading-english--white">CONTENTS</a>
+          <div class="header__right-button scrollNavi-intro">
+            <a href="#" class="heading-english heading-english--white">CONTENTS</a>
           </div>
-          <div class="header__right-button">
-            <a href="#section-category" class="heading-english heading-english--white">LOCAL MENTOR</a>
+          <div class="header__right-button scrollNavi-category">
+            <a href="#" class="heading-english heading-english--white">LOCAL MENTOR</a>
           </div>
         </div>
       </div>
@@ -76,26 +79,37 @@
         </div>
         <div class="row">
           <div class="col-1-of-4">
-            <div class="t-datepicker">
+            <div class="search-bar">
               <label for="selectedDate" class="search__label">날짜</label>
-              <div class="t-check-in t-picker-only" id="selectedDate"></div>
+              <input type="text" class="search-bar__input" id="selectedDate" placeholder="2020/07/19" readonly></input>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
               <label for="selectedTIme" class="search__label">시간</label>
-              <input type="time" class="search-bar__input" id="selectedTIme">
+              <input class="search-bar__input" id="selectedTIme" placeholder="8:00 AM" readonly>
             </div>
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
-              <label for="selectedHowMany" class="search__label">희망인원</label>
-              <input type="number" class="search-bar__input" id="selectedHowMany" placeholder="2">
+              <label for="selectedHowMany" class="search__label">동행인원</label>
+              <input list="number" class="search-bar__input" id="selectedHowMany" placeholder="2" />
+              <datalist id="number">
+                <option value="1"></option>
+                <option value="2"></option>
+                <option value="3"></option>
+                <option value="4"></option>
+                <option value="5"></option>
+                <option value="6"></option>
+                <option value="7"></option>
+                <option value="8"></option>
+                <option value="9"></option>
+              </datalist>
             </div>
           </div>
           <div class="col-1-of-4">
             <label for="searchButton" class="search__label"> &nbsp;</label>
-            <button class="btn btn--color2" id="searchButton">검색</button>
+            <button class="btn btn--color-full" id="searchButton">검색</button>
           </div>
         </div>
       </div>
@@ -107,11 +121,13 @@
         혼자 떠나는, 혼자가 아닌 혼행.
       </div>
       <div class="para">
-        혼행이란 2018년 트렌드 키워드로‘주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것’을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있습니다. <br><br>혼행이란 2018년 트렌드 키워드로‘주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것’을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있습니다.
+        혼행이란 2018년 트렌드 키워드로‘주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것’을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있습니다.
+        <br>
+        <br>혼행이란 2018년 트렌드 키워드로‘주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것’을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있습니다.
       </div>
     </div>
   </section>
-  <section class="section-category" id="section-category">
+  <section class="section-category">
     <div class="row">
       <div class="col-1-of-3">
         <div class="card">
@@ -167,7 +183,7 @@
     </div>
   </section>
 
-  <section class="section-social" id="section-social">
+  <section class="section-social">
     <div class="row">
       <div class="col-1-of-3">
         <a href="#" class="social">
