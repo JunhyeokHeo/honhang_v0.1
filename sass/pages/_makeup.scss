@@ -98,7 +98,10 @@
   }
   &__textarea {
     margin-top: 15rem;
+    padding-top: 1rem;
     height: 20rem !important; 
     
   }
 }
+//make select element's placeholder
+select:invalid { color: $color-grey-dark;}

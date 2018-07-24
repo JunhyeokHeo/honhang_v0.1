@@ -1,31 +1,22 @@
 
-//Auth
-
-// var name, email, photoUrl, uid, emailVerified;
-// firebase.auth().onAuthStateChanged(function(user) {
-//   if (user) {
-//     name = user.displayName;
-//     email = user.email;
-//     photoUrl = user.photoURL;
-//     emailVerified = user.emailVerified;
-//     uid = user.uid;  
-//   }
-//   console.log(email);
-// }); 질문고고
-
-
+// Auth
 function isSignIn() {
+  var user = firebase.auth().currentUser;
   if (user) {
-    window.location.replace("./pages/makeup.html");
+    if(user.emailVerified){
+      window.location.replace("./makeup.html");
+    }else {
+      window.location.replace("./auth.html");
+    }
   } else {
-    window.location.replace("./pages/signin.html")
+    window.location.replace("./signin.html")
   }
 }
 
-
 //data upload
-var firestore = firebase.firestore();
-const docRef = firestore.collection("donghang");
+const db = firebase.firestore();
+const docRef = db.collection("donghang");
+const docRefSearch = db.doc("searchValue/value");
 const makeupButton = document.querySelector('#makeupButton');
 const inputTextTitle = document.querySelector('#selectedTitle');
 const inputTextCity = document.querySelector('#selectedCity');
@@ -40,7 +31,7 @@ makeupButton.addEventListener('click', function () {
   var selectedCity = inputTextCity.value;
   var selectedPlace = inputTextPlace.value;
   var selectedDate = inputTextDate.value;
-  var selectedTIme = inputTextTime.value;
+  var selectedTIme = inputTextTime.value; 
   var selectedHowMany = inputTextHowMany.value;
   var selectedContent = inputTextContent.value;
 
@@ -57,6 +48,14 @@ makeupButton.addEventListener('click', function () {
   }).catch(function (error) {
     console.log("error:", error)
   });
+
+  docRefSearch.set({
+    selectedCity: selectedCity
+  }).then(function () {
+    window.location.href = '../pages/board.html';
+  }).catch(function (error) {
+    console.log("error:", error)
+  });
 });
 
 
@@ -70,7 +69,7 @@ $('#selectedDate').fdatepicker({
 $(document).ready(function () {
   $('#selectedTIme').timepicker({
     timeFormat: 'h:mm p', //1:00 PM
-    interval: 30, //시간간격
+    interval: 60, //시간간격
     minTime: '7', //최소시간
     maxTime: '8:00pm', //최대시간
     startTime: '7:00', //최소시간
@@ -79,11 +78,4 @@ $(document).ready(function () {
     scrollbar: false
   });
 });
-
-//datalist
-$(document).ready(function () {
-  $('#selectedHowMany').click(function () {
-    $(this).val(undefined);
-  })
-})
 

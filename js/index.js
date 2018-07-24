@@ -1,11 +1,28 @@
-var firestore = firebase.firestore();
-const docRef = firestore.doc("donghang/data")
-const searchButton = document.querySelector('#searchButton');
+//Auth
+function isSignIn() {
+  var user = firebase.auth().currentUser;
+  if (user) {
+    if(user.emailVerified){
+      window.location.replace("./pages/makeup.html");
+    }else {
+      window.location.replace("./pages/auth.html");
+    }
+  } else {
+    window.location.replace("./pages/signin.html")
+  }
+}
+
+//data search
+
+const db = firebase.firestore();
+const docRefSearch = db.doc("searchValue/value");
 const inputTextCity = document.querySelector('#selectedCity');
 const inputTextPlace = document.querySelector('#selectedPlace');
 const inputTextDate = document.querySelector('#selectedDate');
 const inputTextTime = document.querySelector('#selectedTime');
 const inputTextHowMany = document.querySelector('#selectedHowMany');
+const searchButton = document.querySelector('#searchButton');
+
 
 searchButton.addEventListener('click', function () {
   var selectedCity = inputTextCity.value;
@@ -14,29 +31,37 @@ searchButton.addEventListener('click', function () {
   var selectedTIme = inputTextTime.value;
   var selectedHowMany = inputTextHowMany.value;
 
-
-  docRef.set({
-    city: selectedCity,
-    place: selectedPlace,
-    date: selectedDate,
-    time: selectedTIme,
-    howMany: selectedHowMany
+  docRefSearch.set({
+    selectedCity: selectedCity
   }).then(function () {
-    console.log("uploaded data!")
+    window.location.href = '../pages/board.html';
   }).catch(function (error) {
     console.log("error:", error)
   });
+
 });
 
 
-function isSignIn() {
-  var user = firebase.auth().currentUser;
-  if (user) {
-    window.location.replace("./pages/makeup.html");
-  } else {
-    window.location.replace("./pages/signin.html")
-  }
-}
+
+//date picker API
+$('#selectedDate').fdatepicker({
+  format: 'yyyy/mm/dd'
+});
+
+//time picker API
+$(document).ready(function () {
+  $('#selectedTIme').timepicker({
+    timeFormat: 'h:mm p', //1:00 PM
+    interval: 60, //시간간격
+    minTime: '7', //최소시간
+    maxTime: '8:00pm', //최대시간
+    startTime: '7:00', //최소시간
+    dynamic: false,
+    dropdown: true,
+    scrollbar: false
+  });
+});
+
 //nav bar toggle
 var scrollState = true;
 $(window).scroll(function () {
@@ -73,11 +98,6 @@ $('.scrollNavi-category').find('a').on("click", function () {
   }, 1000)
 });
 
-//date picker API
-$('#selectedDate').fdatepicker({
-  format: 'yyyy/mm/dd'
-});
-
 //image slider
 var imageIndex = 0;
 
@@ -95,24 +115,3 @@ function imageSlide() {
 }
 
 imageSlide();
-
-//time picker API
-$(document).ready(function () {
-  $('#selectedTIme').timepicker({
-    timeFormat: 'h:mm p', //1:00 PM
-    interval: 30, //시간간격
-    minTime: '7', //최소시간
-    maxTime: '8:00pm', //최대시간
-    startTime: '7:00', //최소시간
-    dynamic: false,
-    dropdown: true,
-    scrollbar: false
-  });
-});
-
-//datalist
-$(document).ready(function () {
-  $('#selectedHowMany').click(function () {
-    $(this).val(undefined);
-  })
-})

@@ -60,7 +60,7 @@
   <section class="section-back-nav"></section>
 
   <section class="section-title">
-    <div class="heading-primary heading-primary--white">동행 커뮤니티 만들기</div>
+    <div class="heading-primary heading-primary--white">안전한 동행인 인증하기</div>
   </section>
 
   <section class="section-makeup">
@@ -68,24 +68,24 @@
       <div class=nav-row>
         <div class="nav-row__pages para para--bold">홈</div>
         <div class="nav-row__pages small-para">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</div>
-        <div class="nav-row__pages para para--bold">동행 만들기</div>
+        <div class="nav-row__pages para para--bold">신원 인증</div>
       </div>
     </div>
     <div class="makeup-progress">
       <div class="makeup-progress__text heading-big">
-        MAKE CHANNEL
+        Authentication
       </div>
-      <div class="makeup-progress__text--small para">
-        안전한 동행 커뮤니티 만들기
+      <div class="makeup-progress__text--small para" style="color: #FF5A4D;">
+        본 인증은 최초 한번만 진행됩니다!
       </div>
 
       <div class="makeup-progress__ing">
         <div class="makeup-progress__icon-box">
-          <img src="../img/icon-id.png" alt="icon-id" class="makeup-progress__icon">
+          <img src="../img/icon-id-active.png" alt="icon-id" class="makeup-progress__icon">
           <p class="para">신원 증명</p>
         </div>
         <div class="makeup-progress__icon-box">
-          <img src="../img/icon-document-active.png" alt="icon-document" class="makeup-progress__icon">
+          <img src="../img/icon-document.png" alt="icon-document" class="makeup-progress__icon">
           <p class="para">동행 정보 작성</p>
         </div>
         <div class="makeup-progress__icon-box">
@@ -94,48 +94,52 @@
         </div>
       </div>
     </div>
-    <div class="makeup">
-      <div class="makeup__form">
-        <h2 class="makeup__text">제목 :</h2>
-        <input type="text" class="makeup__input para" id="selectedTitle" placeholder="게시글 제목" required>
+
+    <div class="auth">
+      <div class="auth__form">
+        <h2 class="auth__text para">이름 :</h2>
+        <input type="text" class="auth__input para" id="myName" placeholder="이름을 입력해주세요." required>
       </div>
-      <div class="makeup__form">
-        <h2 class="makeup__text">도시 :</h2>
-        <input type="text" class="makeup__input para" id="selectedCity" placeholder="파리" required>
+      <div class="auth__form">
+        <h2 class="auth__text para">나이 :</h2>
+        <input type="text" class="auth__input para" id="myAge" placeholder="나이를 입력해주세요." required>
       </div>
-      <div class="makeup__form">
-        <h2 class="makeup__text">장소 :</h2>
-        <input type="text" class="makeup__input para" id="selectedPlace" placeholder="에펠탑" required>
+      <div class="auth__form">
+        <h2 class="auth__text para">거주도시 :</h2>
+        <input type="text" class="auth__input para" id="myCity" placeholder="거주도시를 입력해주세요." required>
       </div>
-      <div class="makeup__form">
-        <h2 class="makeup__text">날짜 :</h2>
-        <input type="text" class="makeup__input para" id="selectedDate" placeholder="2020/07/19" required>
+      <div class="auth__form">
+        <h2 class="auth__text para">휴대폰번호</h2>
+        <input type="text" class="auth__input para" id="myPhone" placeholder="- 없이 숫자만 입력해주세요." required>
       </div>
-      <div class="makeup__form">
-        <h2 class="makeup__text">시간 :</h2>
-        <input class="makeup__input para" id="selectedTIme" placeholder="8:00 AM" required>
+      <div class="auth__form">
+          <h2 class="auth__text para">이메일 인증</h2>
+          <input type="email" class="auth__input para" id="myEmail" placeholder="이메일을 입력해주세요." readonly>
+          <button class="auth__email-button btn-simple para">인증 메일 보내기</button>
+          <p class="auth__conform"></p>
+        </div>
+      <div class="auth__form">
+        <input type="checkbox" class="auth__checkbox" id="auth-agree1">
+        <label for="auth-agree1" class="auth__label para">이용약관 동의</label>
+        <a href="#" class="auth__agree-content">내용보기</a>
       </div>
-      <div class="makeup__form">
-        <h2 class="makeup__text">총 동행인원 :</h2>
-        <select id="selectedHowMany" class="makeup__input para" required>
-          <option value="" disabled selected hidden>0명</option>
-          <option value="2">2명</option>
-          <option value="3">3명</option>
-          <option value="4">4명</option>
-          <option value="5">5명</option>
-          <option value="6">6명</option>
-          <option value="7">7명</option>
-          <option value="8">8명</option>
-          <option value="9">9명</option>
-        </select>
+      <div class="auth__form">
+        <input type="checkbox" class="auth__checkbox" id="auth-agree2">
+        <label for="auth-agree2" class="auth__label para">개인정보 수집 및 이용에 대한 동의</label>
+        <a href="#" class="auth__agree-content">내용보기</a>
       </div>
-      <div class="makeup__form">
-        <h2 class="makeup__text">동행장의 말 :</h2>
-        <textarea class="makeup__input para makeup__textarea" id="selectedContent" placeholder="하고싶은 말을 적어주세요~" required></textarea>
+      <div class="auth__form">
+        <input type="checkbox" class="auth__checkbox" id="auth-agree3">
+        <label for="auth-agree3" class="auth__label para">개인정보 수집 및 이용안내</label>
+        <a href="#" class="auth__agree-content">내용보기</a>
       </div>
-      <div class="makeup__buttons">
+      <div class="auth__form auth__form--back">
+        <input type="checkbox" class="auth__checkbox" id="auth-agree4">
+        <label for="auth-agree4" class="auth__label para">사이트 이용을 위한 이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</label>
+      </div>
+      <div class="auth__buttons">
         <button class="btn btn--white-small">취소</button>
-        <button class="btn btn--color-small" id="makeupButton">확인</button>
+        <button class="btn btn--color-small" id="authButton">다음</button>
       </div>
     </div>
 
@@ -195,7 +199,7 @@
   </footer>
 
   <script src="../js/firebase.js"></script>
-  <script type="text/javascript" src="../js/makeup.js"></script>
+  <script type="text/javascript" src="../js/auth.js"></script>
 
 </body>
 
