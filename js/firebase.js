@@ -12,11 +12,11 @@ firebase.initializeApp(config);
 //상태체크
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    document.querySelector('.signout').style.display = "block";
-    document.querySelector('.signin').style.display = "none";
+    document.querySelector('.state-signout').style.display = "block";
+    document.querySelector('.state-signin').style.display = "none";
   } else {
-    document.querySelector('.signout').style.display = "none";
-    document.querySelector('.signin').style.display = "block";
+    document.querySelector('.state-signout').style.display = "none";
+    document.querySelector('.state-signin').style.display = "block";
   }
 })
 
@@ -64,6 +64,16 @@ function signup() {
       window.alert(errorMessage);
     });
 }
+//비밀번호 재설정
 
+function setNewPassword() {
 
+  var auth = firebase.auth();
+  var userEmail = document.querySelector('#email').value;
 
+  auth.sendPasswordResetEmail(userEmail).then(function () {
+    alert("입력하신 이메일로 변경메일이 발송되었습니다!")
+  }).catch(function (error) {
+    // An error happened.
+  });
+}

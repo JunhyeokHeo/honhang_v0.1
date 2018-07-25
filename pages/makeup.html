@@ -31,12 +31,12 @@
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="pages/signin.html" class="heading-english signin">LOGIN
+            <a href="pages/signin.html" class="heading-english state-signin">LOGIN
               <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
             </a>
           </div>
           <div class="header__right-button">
-            <a href="#" onclick="signout()" class="heading-english signout">LOGOUT
+            <a href="#" onclick="signout()" class="heading-english state-signout">LOGOUT
               <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
             </a>
           </div>
@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-    <div class="makeup">
+    <form class="makeup">
       <div class="makeup__form">
         <h2 class="makeup__text">제목 :</h2>
         <input type="text" class="makeup__input para" id="selectedTitle" placeholder="게시글 제목" required>
@@ -104,7 +104,7 @@
         <input type="text" class="makeup__input para" id="selectedCity" placeholder="파리" required>
       </div>
       <div class="makeup__form">
-        <h2 class="makeup__text">장소 :</h2>
+        <h2 class="makeup__text">여행지 :</h2>
         <input type="text" class="makeup__input para" id="selectedPlace" placeholder="에펠탑" required>
       </div>
       <div class="makeup__form">
@@ -116,7 +116,7 @@
         <input class="makeup__input para" id="selectedTIme" placeholder="8:00 AM" required>
       </div>
       <div class="makeup__form">
-        <h2 class="makeup__text">총 동행인원 :</h2>
+        <h2 class="makeup__text">최대인원 :</h2>
         <select id="selectedHowMany" class="makeup__input para" required>
           <option value="" disabled selected hidden>0명</option>
           <option value="2">2명</option>
@@ -130,14 +130,18 @@
         </select>
       </div>
       <div class="makeup__form">
+        <h2 class="makeup__text">카카오톡 아이디 :</h2>
+        <input type="text" class="makeup__input para" id="selectedKakao" placeholder="연락받으실 카카오톡 아이디를 입력해주세요." required>
+      </div>
+      <div class="makeup__form">
         <h2 class="makeup__text">동행장의 말 :</h2>
         <textarea class="makeup__input para makeup__textarea" id="selectedContent" placeholder="하고싶은 말을 적어주세요~" required></textarea>
       </div>
       <div class="makeup__buttons">
-        <button class="btn btn--white-small">취소</button>
+        <button class="btn btn--white-small" id="backButton">취소</button>
         <button class="btn btn--color-small" id="makeupButton">확인</button>
       </div>
-    </div>
+    </form>
 
   </section>
   <footer class=footer>

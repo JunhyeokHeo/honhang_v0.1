@@ -31,12 +31,12 @@
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="pages/signin.html" class="heading-english signin">LOGIN
+            <a href="pages/signin.html" class="heading-english state-signin">LOGIN
               <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
             </a>
           </div>
           <div class="header__right-button">
-            <a href="#" onclick="signout()" class="heading-english signout">LOGOUT
+            <a href="#" onclick="signout()" class="heading-english state-signout">LOGOUT
               <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
             </a>
           </div>
@@ -95,7 +95,7 @@
       </div>
     </div>
 
-    <div class="auth">
+    <form class="auth">
       <div class="auth__form">
         <h2 class="auth__text para">이름 :</h2>
         <input type="text" class="auth__input para" id="myName" placeholder="이름을 입력해주세요." required>
@@ -138,10 +138,10 @@
         <label for="auth-agree4" class="auth__label para">사이트 이용을 위한 이용약관, 개인정보 수집 및 이용에 모두 동의합니다.</label>
       </div>
       <div class="auth__buttons">
-        <button class="btn btn--white-small">취소</button>
+        <button class="btn btn--white-small" id="backButton">취소</button>
         <button class="btn btn--color-small" id="authButton">다음</button>
       </div>
-    </div>
+    </form>
 
   </section>
   <footer class=footer>

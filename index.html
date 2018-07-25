@@ -33,12 +33,12 @@
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="pages/signin.html" class="heading-english heading-english--white signin">LOGIN
+            <a href="pages/signin.html" class="heading-english heading-english--white state-signin">LOGIN
               <img src="./img/down-arrow.png" alt="icon" class="header__icon">
             </a>
           </div>
           <div class="header__right-button">
-            <a href="#" onclick="signout()" class="heading-english heading-english--white signout">LOGOUT
+            <a href="#" onclick="signout()" class="heading-english heading-english--white state-signout">LOGOUT
               <img src="./img/down-arrow.png" alt="icon" class="header__icon">
             </a>
           </div>
@@ -72,7 +72,7 @@
           </div>
           <div class="col-1-of-2">
             <div class="search-bar">
-              <label for="selectedPlace" class="search__label">장소</label>
+              <label for="selectedPlace" class="search__label">여행지</label>
               <input type="text" class="search-bar__input" id="selectedPlace" placeholder="Namsan tower">
             </div>
           </div>
@@ -92,18 +92,18 @@
           </div>
           <div class="col-1-of-4">
             <div class="search-bar">
-              <label for="selectedHowMany" class="search__label">동행인원</label>
+              <label for="selectedHowMany" class="search__label">최대인원</label>
               <select id="selectedHowMany" class="search-bar__input" required>
-                  <option value="" disabled selected hidden>0명</option>
-                  <option value="2">2명</option>
-                  <option value="3">3명</option>
-                  <option value="4">4명</option>
-                  <option value="5">5명</option>
-                  <option value="6">6명</option>
-                  <option value="7">7명</option>
-                  <option value="8">8명</option>
-                  <option value="9">9명</option>
-                </select>
+                <option value="" disabled selected hidden>0명</option>
+                <option value="2">2명</option>
+                <option value="3">3명</option>
+                <option value="4">4명</option>
+                <option value="5">5명</option>
+                <option value="6">6명</option>
+                <option value="7">7명</option>
+                <option value="8">8명</option>
+                <option value="9">9명</option>
+              </select>
             </div>
           </div>
           <div class="col-1-of-4">
@@ -126,7 +126,7 @@
       </div>
     </div>
   </section>
-  <section class="section-category">
+  <section class="section-category" id="section-category">
     <div class="row">
       <div class="col-1-of-3">
         <div class="card">
@@ -140,7 +140,7 @@
           </div>
           <div class="card__side card__side--back card__side--back-1">
             <div class="card__cta">
-              <a href="#" onclick="alert('서비스준비중입니다')" class="btn btn--white">더보기</a>
+              <a href="#popup" class="btn btn--white">더보기</a>
             </div>
           </div>
         </div>
@@ -157,7 +157,7 @@
           </div>
           <div class="card__side card__side--back card__side--back-2">
             <div class="card__cta">
-              <a href="#" onclick="alert('서비스준비중입니다')" class="btn btn--white">더보기</a>
+              <a href="#popup" class="btn btn--white">더보기</a>
             </div>
           </div>
         </div>
@@ -174,7 +174,7 @@
           </div>
           <div class="card__side card__side--back card__side--back-3">
             <div class="card__cta">
-              <a href="#" onclick="alert('서비스준비중입니다')" class="btn btn--white">더보기</a>
+              <a href="#popup" class="btn btn--white">더보기</a>
             </div>
           </div>
         </div>
@@ -182,7 +182,7 @@
     </div>
   </section>
 
-  <section class="section-social">
+  <section class="section-social" id="section-social">
     <div class="row">
       <div class="col-1-of-3">
         <a href="#" class="social">
@@ -205,6 +205,14 @@
 
     </div>
   </section>
+
+  <!-- 팝업 -->
+  <div class="popup" id="popup">
+    <div class="popup__content">
+      <a href="#section-category" class="popup__closer">&times;</a>
+      <h2 class="popup__text heading-secondary">서비스 준비중입니다.</h2>
+    </div>
+  </div>
 
   <footer class=footer>
     <div class="row">

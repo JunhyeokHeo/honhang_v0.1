@@ -13,3 +13,19 @@ html {
 body {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 0.8rem;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba($color-grey-dark-3, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-grey-dark-2; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $color-grey-dark-3; 
+}

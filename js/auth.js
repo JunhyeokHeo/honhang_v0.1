@@ -106,3 +106,8 @@ $('.auth__checkbox').each(function (i) {
     }
   })
 });
+
+//backButton
+$('.backButton').on('click', function(){
+  window.location.href = "../index.html"
+})

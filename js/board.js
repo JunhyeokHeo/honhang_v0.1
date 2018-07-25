@@ -2,9 +2,9 @@
 function isSignIn() {
   var user = firebase.auth().currentUser;
   if (user) {
-    if(user.emailVerified){
+    if (user.emailVerified) {
       window.location.replace("./makeup.html");
-    }else {
+    } else {
       window.location.replace("./auth.html");
     }
   } else {
@@ -58,41 +58,70 @@ function getDataList() {
     });
 
     dataList.map(function (data, i) {
-
       let addLi = document.createElement('li');
       let addDivForTitle = document.createElement('div');
-      let addDivForContent = document.createElement('div');
-      let addParaForCity = document.createElement('p');
-      let addParaForPlace = document.createElement('p');
-      let addParaForDate = document.createElement('p');
-      let addParaForTime = document.createElement('p');
-      let addParaForHowMany = document.createElement('p');
+      let addDivForDetail = document.createElement('div');
+      let addDivForDetailRow1 = document.createElement('div');
+      let addDivForDetailRow2 = document.createElement('div');
+      let addDivForDetailAbsol = document.createElement('div');
+      let addDivForTitle2 = document.createElement('h1');
+      let addParaForCity = document.createElement('h2');
+      let addParaForPlace = document.createElement('h2');
+      let addParaForDate = document.createElement('h3');
+      let addParaForTime = document.createElement('h3');
+      let addParaForHowMany = document.createElement('h3');
       let addParaForContent = document.createElement('p');
-
+      let addDivForContact = document.createElement('div');
 
       addLi.classList.add('board__list-item');
-      addDivForTitle.classList.add('board__list-title', 'heading-tertiary');
-      addDivForContent.classList.add('board__content', 'para');
+      addDivForTitle.classList.add('board__list-title', 'heading-secondary', 'heading-secondary--white');
+      addDivForDetail.classList.add('detail__content');
+      addDivForDetailRow1.classList.add('detail__row1');
+      addDivForDetailRow2.classList.add('detail__row2');
+      addDivForDetailAbsol.classList.add('detail__absol');
+      addDivForTitle2.classList.add('detail-h1');
+      addParaForCity.classList.add('detail-h2');
+      addParaForPlace.classList.add('detail-h2');
+      addParaForDate.classList.add('detail-h3');
+      addParaForTime.classList.add('detail-h3');
+      addParaForHowMany.classList.add('detail-h3');
+      addParaForContent.classList.add('detail-p');
+      addDivForContact.classList.add('detail__contact', 'detail-h2');
 
       document.querySelector('.board__list').appendChild(addLi);
+      document.querySelector('.detail__modal').appendChild(addDivForDetail);
       document.querySelectorAll('.board__list-item')[i].appendChild(addDivForTitle);
-      document.querySelectorAll('.board__list-item')[i].appendChild(addDivForContent);
-      document.querySelectorAll('.board__content')[i].appendChild(addParaForCity);
-      document.querySelectorAll('.board__content')[i].appendChild(addParaForPlace);
-      document.querySelectorAll('.board__content')[i].appendChild(addParaForDate);
-      document.querySelectorAll('.board__content')[i].appendChild(addParaForTime);
-      document.querySelectorAll('.board__content')[i].appendChild(addParaForHowMany);
-      document.querySelectorAll('.board__content')[i].appendChild(addParaForContent);
+      document.querySelectorAll('.detail__content')[i].appendChild(addDivForTitle2);
+      
+      document.querySelectorAll('.detail__content')[i].appendChild(addDivForDetailRow1);
+      document.querySelectorAll('.detail__content')[i].appendChild(addDivForDetailRow2);
+      document.querySelectorAll('.detail__content')[i].appendChild(addDivForDetailAbsol);
 
+      document.querySelectorAll('.detail__row1')[i].appendChild(addParaForCity);
+      document.querySelectorAll('.detail__row1')[i].appendChild(addParaForPlace);
+      document.querySelectorAll('.detail__row2')[i].appendChild(addParaForDate);
+      document.querySelectorAll('.detail__row2')[i].appendChild(addParaForTime);
+      document.querySelectorAll('.detail__content')[i].appendChild(addParaForHowMany);
+      document.querySelectorAll('.detail__content')[i].appendChild(addParaForContent);
+      document.querySelectorAll('.detail__absol')[i].appendChild(addDivForContact);
 
+      let number = '';
+      if(i < 9) {
+        number = `0${i+1}`
+      } else {
+        number = `${i+1}`
+      }
 
-      addDivForTitle.innerHTML = data.title;
-      addParaForCity.innerHTML = `도시: ${data.city}`;
-      addParaForPlace.innerHTML = `장소: ${data.place}`;
-      addParaForDate.innerHTML = `날짜: ${data.date}`;
-      addParaForTime.innerHTML = `시간: ${data.time}`;
-      addParaForHowMany.innerHTML = `동행인원: ${data.howMany}`;
-      addParaForContent.innerHTML = `내용: ${data.content}`;
+      document.querySelector('.board__total').innerHTML = `TOTAL ${dataList.length}`
+      addDivForTitle.innerHTML = `<p class="tiny-para">${number}&nbsp;&nbsp;-&nbsp;</p>${data.title}`;
+      addDivForTitle2.innerHTML = `<p class="detail-p-title">제목.&nbsp;</p>${data.title}`;
+      addParaForCity.innerHTML = `<p class="detail-p-title">도시.&nbsp;</p> ${data.city}`;
+      addParaForPlace.innerHTML = `<p class="detail-p-title">여행지.&nbsp;</p> ${data.place}`;
+      addParaForDate.innerHTML = `<p class="detail-p-title">날짜.&nbsp;</p> ${data.date}`;
+      addParaForTime.innerHTML = `<p class="detail-p-title">시간.&nbsp;</p> ${data.time}`;
+      addParaForHowMany.innerHTML = `<p class="detail-p-title">최대인원.&nbsp;</p> ${data.howMany}명`;
+      addParaForContent.innerHTML = `<p class="detail-p-title">내용.&nbsp;</p> ${data.content}`;
+      addDivForContact.innerHTML = `${data.kakao}`
 
     })
     return dataList;
@@ -106,27 +135,24 @@ async function asyncCall() {
   const dataList = await getDataList();
   //done 
   document.querySelector('.loading').classList.remove('ing');
-  listOpenContent();
+  openListDetail();
 }
 asyncCall();
 
-//tab menu
-$('.board__menu').each(function (index) {
-
-  $('.board__list').eq(0).css("display", "block");
-
-  $(this).on("click", function () {
-    $(this).addClass('board__menu-on').siblings().removeClass('board__menu-on');
-    $('.board__list').eq(index).css("display", "block").
-    siblings().css("display", "none");
-  })
-})
-
-function listOpenContent() {
+//list and content
+function openListDetail() {
   $('.board__list-item').each(function (index) {
     $(this).on("click", function () {
-      $(this).find('.board__content').slideToggle();
-      $(this).siblings().find('.board__content').css("display", "none");
+      $('.detail__content').eq(index).animate({
+        "right": "0",
+        "opacity": "1"
+      }, 500).siblings().animate({
+        "right": "-50rem",
+        "opacity": "0"
+      })
+      $('.detail__content').eq(index).css("display", "block").siblings().css("display", "none");
+      $(this).addClass('active').siblings().removeClass('active');
+      $(this).find('.board__list-title').addClass('active').parent().siblings().find('.board__list-title').removeClass('active');
     })
   })
 }

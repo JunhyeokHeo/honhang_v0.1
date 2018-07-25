@@ -24,6 +24,7 @@ const inputTextPlace = document.querySelector('#selectedPlace');
 const inputTextDate = document.querySelector('#selectedDate');
 const inputTextTime = document.querySelector('#selectedTime');
 const inputTextHowMany = document.querySelector('#selectedHowMany');
+const inputTextKakao = document.querySelector('#selectedKakao');
 const inputTextContent = document.querySelector('#selectedContent');
 
 makeupButton.addEventListener('click', function () {
@@ -33,6 +34,7 @@ makeupButton.addEventListener('click', function () {
   var selectedDate = inputTextDate.value;
   var selectedTIme = inputTextTime.value; 
   var selectedHowMany = inputTextHowMany.value;
+  var selectedKakao = inputTextKakao.value;
   var selectedContent = inputTextContent.value;
 
   docRef.add({
@@ -42,6 +44,7 @@ makeupButton.addEventListener('click', function () {
     date: selectedDate,
     time: selectedTIme,
     howMany: selectedHowMany,
+    kakao: selectedKakao,
     content: selectedContent
   }).then(function (data) {
     console.log("uploaded data!, data ID :", data.id)
@@ -78,4 +81,9 @@ $(document).ready(function () {
     scrollbar: false
   });
 });
+
+//backButton
+$('.backButton').on('click', function(){
+  window.location.href = "../index.html"
+})
 

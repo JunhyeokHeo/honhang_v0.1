@@ -18,13 +18,13 @@
     float: left;
   }
   &__color1 {
-    background-color: $color-primary-light;
+    background-color: rgba($color-primary-light, 0.5);
   }
   &__color2 {
-    background-color: $color-primary;
+    background-color: rgba($color-primary,0.5);
   }
   &__color3 {
-    background-color: $color-primary-dark;
+    background-color: rgba($color-primary-dark,0.5);
   }
   &.ing {
     display: block;

@@ -16,24 +16,25 @@
 
 <body>
   <main class="main">
+
     <div class="bg-image">
-      <div class="bg-gradient"></div>
+      <img src="../img/board-back.jpg" alt="board-back" class="board__back">
     </div>
     <div class="header-container">
       <div class="header">
         <div class="header__left">
-          <a href="index.html">
+          <a href="../index.html">
             <img src="../img/logo-white.png" alt="logo" class="header__logo">
           </a>
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="pages/signin.html" class="heading-english heading-english--white signin">LOGIN
+            <a href="./signin.html" class="heading-english heading-english--white state-signin">LOGIN
               <img src="../img/down-arrow.png" alt="icon" class="header__icon">
             </a>
           </div>
           <div class="header__right-button">
-            <a href="#" onclick="signout()" class="heading-english heading-english--white signout">LOGOUT
+            <a href="#" onclick="signout()" class="heading-english heading-english--white state-signout">LOGOUT
               <img src="../img/down-arrow.png" alt="icon" class="header__icon">
             </a>
           </div>
@@ -62,72 +63,32 @@
       </div>
     </div>
 
-    <div class="section-board">
-      <div class="board">
-        <div class="board__search-bar">
-          <div type="text" class="board__input"></div>
+    <section class="section-board">
+      <div class="side-nav">
+        <div class="side-nav__box on">
+          <a href="#" class="heading-english heading-english--white">ALL</a>
         </div>
+        <div class="side-nav__box">
+          <a href="#" class="heading-english heading-english--white">PEOPLE</a>
+        </div>
+        <div class="side-nav__box">
+          <a href="#" class="heading-english heading-english--white">MENTO</a>
+        </div>
+      </div>
+      <div class="board">
         <ul class="board__list">
-
+          <p class="board__total small-para"></p>
           <!-- 자바스크립트로 엘리먼트 생성된 DOM엘리먼트 위치 -->
+        </ul>
+      </div>
+      <div class="detail">
+        <div class="detail__modal">
+          <!-- 자바스크립트로 엘리먼트 생성된 DOM엘리먼트 위치 -->
+        </div>
+      </div>
+    </section>
 
-        </ul>
-      </div>
-    </div>
   </main>
-  <footer class=footer>
-    <div class="row">
-      <div class="col-1-of-4">
-        <img src="../img/logo-white.png" alt="logo" class="footer__logo">
-      </div>
-      <div class="col-1-of-4">
-        <ul class="footer__list">
-          <li class="footer__list-item">
-            <span class="footer__title">혼행 대표 :</span> 허준혁</li>
-          <li class="footer__list-item">
-            <span class="footer__title">개인정보관리책임자 :</span> 허준혁</li>
-          <li class="footer__list-item">
-            <span class="footer__title">사업자등록번호 :</span> 000-00-00000</li>
-          <li class="footer__list-item">
-            <span class="footer__title">통신판매업신고 :</span> 2018-서울강남-00000</li>
-          <li class="footer__list-item">
-            <span class="footer__title">주소 :</span> 인천광역시 연수구 선학로 000</li>
-          <li class="footer__list-item">2018 &copy;Copyright Honhang. ALL right reserved</li>
-        </ul>
-      </div>
-      <div class="col-1-of-4">
-        <ul class="footer__list">
-          <li class="footer__title">CONTACT US</li>
-          <li class="footer__list-item">032-000-0000</li>
-          <li class="footer__list-item">AM 10:00 ~ PM 6:00</li>
-          <li class="footer__list-item">제휴문의 gjwnsgur91@naver.com</li>
-          <li class="footer__title">BANK INFO</li>
-          <li class="footer__list-item">
-            국민 660402-01-513947 예금주 허준혁
-          </li>
-        </ul>
-      </div>
-      <div class="col-1-of-4">
-        <ul class="footer__list">
-          <li class="footer__title">INFOMATION</li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__list-item footer__link">회사소개</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="../pages/qna.html" class="footer__list-item footer__link">QnA</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__list-item footer__link">서비스 이용약관</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__list-item footer__link">개인정보 취급정책</a>
-          </li>
-          <li class="footer__list-item">
-            <a href="#" class="footer__list-item footer__link">운영정책</a>
-          </li>
-        </ul>
-      </div>
-  </footer>
 
   <script src="../js/firebase.js"></script>
   <script type="text/javascript" src="../js/board.js"></script>
