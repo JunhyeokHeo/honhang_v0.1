@@ -385,7 +385,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
@@ -399,7 +399,7 @@ body {
     height: 45vh;
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
     overflow: hidden; }
   .popup__text {
     text-align: center;
@@ -420,6 +420,37 @@ body {
     color: #FF5A4D; }
   .popup__closer:active {
     transform: translateY(0.5rem); }
+
+.small-popup {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden; }
+  .small-popup__content {
+    position: absolute;
+    top: 15%;
+    right: -30rem;
+    width: 30rem;
+    height: 8rem;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .small-popup__icon {
+    width: 2rem;
+    height: auto;
+    float: left;
+    margin-right: 1rem; }
+  .small-popup__text {
+    color: #222; }
 
 .signout {
   display: none; }
@@ -922,7 +953,7 @@ select:invalid {
   .auth__text {
     width: 20%; }
   .auth__input {
-    width: 40%;
+    width: 30%;
     height: 5rem;
     outline: none;
     padding-left: 1rem;

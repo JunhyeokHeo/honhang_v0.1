@@ -1,11 +1,10 @@
-
 // Auth
 function isSignIn() {
   var user = firebase.auth().currentUser;
   if (user) {
-    if(user.emailVerified){
+    if (user.emailVerified) {
       window.location.replace("./makeup.html");
-    }else {
+    } else {
       window.location.replace("./auth.html");
     }
   } else {
@@ -28,37 +27,53 @@ const inputTextKakao = document.querySelector('#selectedKakao');
 const inputTextContent = document.querySelector('#selectedContent');
 
 makeupButton.addEventListener('click', function () {
+  var user = firebase.auth().currentUser;
   var selectedTitle = inputTextTitle.value;
   var selectedCity = inputTextCity.value;
   var selectedPlace = inputTextPlace.value;
   var selectedDate = inputTextDate.value;
-  var selectedTIme = inputTextTime.value; 
+  var selectedTIme = inputTextTime.value;
   var selectedHowMany = inputTextHowMany.value;
   var selectedKakao = inputTextKakao.value;
   var selectedContent = inputTextContent.value;
 
-  docRef.add({
-    title: selectedTitle,
-    city: selectedCity,
-    place: selectedPlace,
-    date: selectedDate,
-    time: selectedTIme,
-    howMany: selectedHowMany,
-    kakao: selectedKakao,
-    content: selectedContent
-  }).then(function (data) {
-    console.log("uploaded data!, data ID :", data.id)
-  }).catch(function (error) {
-    console.log("error:", error)
-  });
+  if (selectedTitle != "" && selectedCity != "" && selectedPlace != "" && selectedDate != "" &&
+    selectedTIme != "" && selectedHowMany != "" && selectedKakao != "" && selectedContent != "") {
 
-  docRefSearch.set({
-    selectedCity: selectedCity
-  }).then(function () {
-    window.location.href = '../pages/board.html';
-  }).catch(function (error) {
-    console.log("error:", error)
-  });
+    docRef.add({
+      email: user.email,
+      title: selectedTitle,
+      city: selectedCity,
+      place: selectedPlace,
+      date: selectedDate,
+      time: selectedTIme,
+      howMany: selectedHowMany,
+      kakao: selectedKakao,
+      content: selectedContent
+    }).then(function (data) {
+      console.log("uploaded data!, data ID :", data.id)
+    }).catch(function (error) {
+      console.log("error:", error)
+    });
+
+    docRefSearch.set({
+      selectedCity: selectedCity
+    }).then(function () {
+      window.location.href = '../pages/board.html';
+    }).catch(function (error) {
+      console.log("error:", error)
+    });
+
+  } else {
+    $('.small-popup').css({
+      "opacity": "1",
+      "visibility": "visible"
+    });
+    $('.small-popup__content').animate({
+      "right": "2rem"
+    }, 300);
+  }
+
 });
 
 
@@ -83,7 +98,18 @@ $(document).ready(function () {
 });
 
 //backButton
-$('.backButton').on('click', function(){
+$('.backButton').on('click', function () {
   window.location.href = "../index.html"
 })
 
+//popup closer
+$('.small-popup').on('click', function () {
+  $('.small-popup__content').animate({
+    "right": "-30rem"
+  }, 300, function () {
+    $('.small-popup').css({
+      "opacity": "0",
+      "visibility": "hidden"
+    })
+  })
+})

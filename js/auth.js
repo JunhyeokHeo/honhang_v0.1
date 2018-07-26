@@ -34,10 +34,7 @@ function authStateChange() {
         document.querySelector('#myEmail').value = email
         if (emailVerified) {
           $('.auth__conform').html(txtConform);
-          console.log("yes")
-        } else {
-          console.log("no")
-        }
+        } else {}
       }
     });
   })
@@ -58,27 +55,34 @@ authButton.addEventListener('click', function () {
         var selectedCity = inputTextMyCity.value;
         var selectedPhone = inputTextMyPhone.value;
 
-        if (emailVerified) {
+        if (selectedName !== "" && selectedAge !== "" && selectedCity !== "" && selectedPhone !== "") {
 
-          if ($('#auth-agree4').is(":checked")) {
-            docRefForUser.add({
-              email: email,
-              name: selectedName,
-              age: selectedAge,
-              city: selectedCity,
-              phone: selectedPhone,
-            }).then(function (data) {
-              window.location.href = '/pages/makeup.html'
-            }).catch(function (error) {
-              console.log("error:", error)
-            });
+          if (emailVerified) {
+
+            if ($('#auth-agree4').is(":checked")) {
+              docRefForUser.add({
+                email: email,
+                name: selectedName,
+                age: selectedAge,
+                city: selectedCity,
+                phone: selectedPhone,
+              }).then(function (data) {
+                window.location.href = '/pages/makeup.html'
+              }).catch(function (error) {
+                console.log("error:", error)
+              });
+            } else {
+              popUpOpen(3);
+            }
+
           } else {
-            alert("이용약관에 모두 동의 해주세요!")
+            popUpOpen(2);
           }
 
         } else {
-          alert("이메일 인증을 해주세요!")
+          popUpOpen(1);
         }
+
       }
     });
   });
@@ -90,7 +94,7 @@ $('.auth__email-button').on('click', function () {
   const user = firebase.auth().currentUser;
 
   user.sendEmailVerification().then(function () {
-    alert("이메일로 인증메일을 보냈습니다!")
+    popUpOpen(4);
   }).catch(function (error) {
     // An error happened.
   });
@@ -108,6 +112,44 @@ $('.auth__checkbox').each(function (i) {
 });
 
 //backButton
-$('.backButton').on('click', function(){
+$('.backButton').on('click', function () {
   window.location.href = "../index.html"
+})
+
+
+//popup opener
+function popUpOpen(i) {
+  switch (i) {
+    case 1:
+      $('.small-popup__text').html("인적사항를 모두 입력해주세요!");
+      break;
+    case 2:
+      $('.small-popup__text').html("이메일을 인증 해주세요!");
+      break;
+    case 3:
+      $('.small-popup__text').html("이용약관에 모두 동의 해주세요!");
+      break;
+    case 4:
+      $('.small-popup__text').html("이메일로 인증메일을 보냈습니다!");
+      break;
+  }
+
+  $('.small-popup').css({
+    "opacity": "1",
+    "visibility": "visible"
+  });
+  $('.small-popup__content').animate({
+    "right": "2rem"
+  }, 300);
+}
+//popup closer
+$('.small-popup').on('click', function () {
+  $('.small-popup__content').animate({
+    "right": "-30rem"
+  }, 300, function () {
+    $('.small-popup').css({
+      "opacity": "0",
+      "visibility": "hidden"
+    })
+  })
 })

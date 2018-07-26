@@ -75,37 +75,37 @@
       <div class="makeup-progress__text heading-big">
         Authentication
       </div>
-      <div class="makeup-progress__text--small para" style="color: #FF5A4D;">
+      <div class="makeup-progress__text--small para para--bold" style="color: #FF5A4D;">
         본 인증은 최초 한번만 진행됩니다!
       </div>
 
       <div class="makeup-progress__ing">
         <div class="makeup-progress__icon-box">
           <img src="../img/icon-id-active.png" alt="icon-id" class="makeup-progress__icon">
-          <p class="para">신원 증명</p>
+          <p class="para para--bold">신원 증명</p>
         </div>
         <div class="makeup-progress__icon-box">
           <img src="../img/icon-document.png" alt="icon-document" class="makeup-progress__icon">
-          <p class="para">동행 정보 작성</p>
+          <p class="para para--bold">동행 정보 작성</p>
         </div>
         <div class="makeup-progress__icon-box">
           <img src="../img/icon-schedule.png" alt="icon-schedule" class="makeup-progress__icon">
-          <p class="para">커뮤니티 등록</p>
+          <p class="para para--bold">커뮤니티 등록</p>
         </div>
       </div>
     </div>
 
-    <form class="auth">
+    <div class="auth">
       <div class="auth__form">
-        <h2 class="auth__text para">이름 :</h2>
+        <h2 class="auth__text para">이름</h2>
         <input type="text" class="auth__input para" id="myName" placeholder="이름을 입력해주세요." required>
       </div>
       <div class="auth__form">
-        <h2 class="auth__text para">나이 :</h2>
+        <h2 class="auth__text para">나이</h2>
         <input type="text" class="auth__input para" id="myAge" placeholder="나이를 입력해주세요." required>
       </div>
       <div class="auth__form">
-        <h2 class="auth__text para">거주도시 :</h2>
+        <h2 class="auth__text para">거주도시</h2>
         <input type="text" class="auth__input para" id="myCity" placeholder="거주도시를 입력해주세요." required>
       </div>
       <div class="auth__form">
@@ -113,11 +113,11 @@
         <input type="text" class="auth__input para" id="myPhone" placeholder="- 없이 숫자만 입력해주세요." required>
       </div>
       <div class="auth__form">
-          <h2 class="auth__text para">이메일 인증</h2>
-          <input type="email" class="auth__input para" id="myEmail" placeholder="이메일을 입력해주세요." readonly>
-          <button class="auth__email-button btn-simple para">인증 메일 보내기</button>
-          <p class="auth__conform"></p>
-        </div>
+        <h2 class="auth__text para">이메일 인증</h2>
+        <input type="email" class="auth__input para" id="myEmail" placeholder="이메일을 입력해주세요." readonly>
+        <button class="auth__email-button btn-simple para">인증 메일 보내기</button>
+        <p class="auth__conform"></p>
+      </div>
       <div class="auth__form">
         <input type="checkbox" class="auth__checkbox" id="auth-agree1">
         <label for="auth-agree1" class="auth__label para">이용약관 동의</label>
@@ -141,9 +141,17 @@
         <button class="btn btn--white-small" id="backButton">취소</button>
         <button class="btn btn--color-small" id="authButton">다음</button>
       </div>
-    </form>
+    </div>
 
   </section>
+
+  <div class="small-popup" id="small-popup">
+    <div class="small-popup__content">
+      <img src="../img/icon-info.png" alt="icon-info" class="small-popup__icon">
+      <h3 class="small-popup__text heading-secondary"></h2>
+    </div>
+  </div>
+
   <footer class=footer>
     <div class="row">
       <div class="col-1-of-4">

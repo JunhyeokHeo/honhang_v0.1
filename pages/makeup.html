@@ -75,26 +75,26 @@
       <div class="makeup-progress__text heading-big">
         MAKE CHANNEL
       </div>
-      <div class="makeup-progress__text--small para">
+      <div class="makeup-progress__text--small para para--bold">
         안전한 동행 커뮤니티 만들기
       </div>
 
       <div class="makeup-progress__ing">
         <div class="makeup-progress__icon-box">
           <img src="../img/icon-id.png" alt="icon-id" class="makeup-progress__icon">
-          <p class="para">신원 증명</p>
+          <p class="para para--bold">신원 증명</p>
         </div>
         <div class="makeup-progress__icon-box">
           <img src="../img/icon-document-active.png" alt="icon-document" class="makeup-progress__icon">
-          <p class="para">동행 정보 작성</p>
+          <p class="para para--bold">동행 정보 작성</p>
         </div>
         <div class="makeup-progress__icon-box">
           <img src="../img/icon-schedule.png" alt="icon-schedule" class="makeup-progress__icon">
-          <p class="para">커뮤니티 등록</p>
+          <p class="para para--bold">커뮤니티 등록</p>
         </div>
       </div>
     </div>
-    <form class="makeup">
+    <div class="makeup">
       <div class="makeup__form">
         <h2 class="makeup__text">제목 :</h2>
         <input type="text" class="makeup__input para" id="selectedTitle" placeholder="게시글 제목" required>
@@ -141,9 +141,17 @@
         <button class="btn btn--white-small" id="backButton">취소</button>
         <button class="btn btn--color-small" id="makeupButton">확인</button>
       </div>
-    </form>
+    </div>
 
   </section>
+
+  <div class="small-popup" id="small-popup">
+    <div class="small-popup__content">
+      <img src="../img/icon-info.png" alt="icon-info" class="small-popup__icon">
+      <h3 class="small-popup__text heading-secondary">동행정보를 모두 입력해주세요!</h2>
+    </div>
+  </div>
+
   <footer class=footer>
     <div class="row">
       <div class="col-1-of-4">
