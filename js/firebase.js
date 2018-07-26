@@ -22,9 +22,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 //로그인
 function signin() {
+  
+  event.preventDefault();
   var userEmail = document.querySelector('#email').value;
   var userPass = document.querySelector('#password').value;
-
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
     .then(function (user) {
       if (user) {
@@ -35,7 +36,7 @@ function signin() {
       // Handle Errors here.//
       var errorCode = error.code;
       var errorMessage = error.message;
-      window.alert(errorMessage);
+      console.log(error);
     });
 
 }
@@ -47,6 +48,7 @@ function signout() {
 }
 //회원가입
 function signup() {
+  event.preventDefault();
   var userEmail = document.querySelector('#email').value;
   var userPass = document.querySelector('#password').value;
 
@@ -61,7 +63,7 @@ function signup() {
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
-      window.alert(errorMessage);
+      console.log(error);
     });
 }
 //비밀번호 재설정
@@ -77,3 +79,6 @@ function setNewPassword() {
     // An error happened.
   });
 }
+
+//form 기능 disable
+
