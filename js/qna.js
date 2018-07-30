@@ -12,6 +12,12 @@ function isSignIn() {
   }
 }
 
+//all board
+const boardAll = document.querySelector('.boardAll');
+boardAll.addEventListener('click', function () {
+  window.location.href = '../pages/boardall.html';
+})
+
 //tab menu
 $('.qna__menu').each(function (index) {
 

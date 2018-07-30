@@ -82,6 +82,16 @@
       background: $color-primary;
     }
   }
+  &--color-reSearch {
+    background: $color-primary;
+    width: 80%;
+    height: 4.5rem;
+    color: $color-white;
+    padding: 1rem;
+    &::after {
+      background: $color-primary;
+    }
+  }
 }
 
 .btn-text {

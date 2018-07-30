@@ -12,6 +12,12 @@ function isSignIn() {
   }
 }
 
+//all board
+const boardAll = document.querySelector('.boardAll');
+boardAll.addEventListener('click', function () {
+  window.location.href = '../pages/boardall.html';
+})
+
 //data upload
 const db = firebase.firestore();
 const docRef = db.collection("donghang");
@@ -37,6 +43,9 @@ makeupButton.addEventListener('click', function () {
   var selectedKakao = inputTextKakao.value;
   var selectedContent = inputTextContent.value;
 
+  var GetNum = selectedDate.match(/\d+/g);
+  var selectedDateGetNum = parseInt(GetNum[0] + GetNum[1] + GetNum[2])
+
   if (selectedTitle != "" && selectedCity != "" && selectedPlace != "" && selectedDate != "" &&
     selectedTIme != "" && selectedHowMany != "" && selectedKakao != "" && selectedContent != "") {
 
@@ -46,10 +55,12 @@ makeupButton.addEventListener('click', function () {
       city: selectedCity,
       place: selectedPlace,
       date: selectedDate,
+      dateNum: selectedDateGetNum,
       time: selectedTIme,
       howMany: selectedHowMany,
       kakao: selectedKakao,
-      content: selectedContent
+      content: selectedContent,
+      uid: user.uid
     }).then(function (data) {
       console.log("uploaded data!, data ID :", data.id)
     }).catch(function (error) {
@@ -75,8 +86,6 @@ makeupButton.addEventListener('click', function () {
   }
 
 });
-
-
 
 //date picker API
 $('#selectedDate').fdatepicker({

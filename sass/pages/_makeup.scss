@@ -91,6 +91,9 @@
     &::-webkit-input-placeholder {
       color: $color-grey-dark;
     }
+    &:invalid {
+      color: $color-grey-dark;
+    }
   }
   &__buttons {
     text-align: center;

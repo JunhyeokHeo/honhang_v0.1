@@ -1,18 +1,18 @@
 body {
-  font-family: 'Gothic A1', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 300;
   line-height: 1.7;
   color: $color-grey-dark-3;
 }
 
 .heading-big {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-size: 3.5rem;
   font-weight: 600;
 }
 
 .heading-primary {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   font-size: 2rem;
   line-height: 1.4;
@@ -22,9 +22,9 @@ body {
 }
 
 .heading-secondary {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   line-height: 1.35;
   &--white {
     color: $color-white
@@ -32,12 +32,15 @@ body {
 }
 
 .heading-tertiary {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.4;
   &--white {
     color: $color-white
+  }
+  &--bold {
+    font-weight: 700;
   }
 }
 
@@ -59,8 +62,21 @@ body {
 }
 
 .para {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-size: 1.4rem;
+  line-height: 2;
+  &--bold {
+    font-weight: 700;
+  }
+  &--white {
+    color: $color-white;
+  }
+}
+
+.sub-para {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1.25rem;
+  line-height: 2;
   &--bold {
     font-weight: 700;
   }
@@ -71,7 +87,7 @@ body {
 
 .small-para {
   margin-top: 0.2rem;
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
 }
@@ -87,7 +103,7 @@ body {
 }
 
 .detail-h1 {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   font-size: 2rem;
   line-height: 1.7;
@@ -97,8 +113,8 @@ body {
 }
 
 .detail-h2 {
-  flex:1;
-  font-family: 'Gothic A1', serif;
+  flex: 1;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 1.7;
@@ -106,8 +122,8 @@ body {
 }
 
 .detail-h3 {
-  flex:1;
-  font-family: 'Gothic A1', serif;
+  flex: 1;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   font-size: 1.8rem;
   line-height: 1.7;
@@ -116,7 +132,7 @@ body {
 }
 
 .detail-p {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
   line-height: 1.7;
@@ -125,7 +141,7 @@ body {
 }
 
 .detail-p-title {
-  font-family: 'Gothic A1', serif;
+  font-family: 'Nanum Gothic', sans-serif;
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 1.7;

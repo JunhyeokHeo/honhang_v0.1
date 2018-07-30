@@ -12,18 +12,25 @@ function isSignIn() {
   }
 }
 
+//all board
+const boardAll = document.querySelector('.boardAll');
+boardAll.addEventListener('click', function () {
+  window.location.href = '../pages/boardall.html';
+})
+
 //loading
 function loadingAni() {
   $('.loading__circle').animate({
     'margin': '0.5rem'
-  }, 500, function () {
+  }, 400, function () {
     $('.loading__circle').animate({
       'margin': '0'
-    }, 500)
+    }, 400)
     loadingAni();
   })
 }
 loadingAni();
+
 
 //data download
 let searchValue = "";
@@ -42,13 +49,31 @@ function getSearchValue() {
   });
 }
 
+function currentDateNum() {
+  const date = new Date();
+  let getYear = date.getFullYear();
+  let getMonthNum = date.getMonth();
+  let getDate = date.getDate();
+  
+  if(getMonthNum < 9){
+    getMonth = `0${getMonthNum+1}`
+  } else {
+    getMonth = getMonthNum + 1
+  }
+
+  let currentDateString = `${getYear}${getMonth}${getDate}`;
+  let currentDate = parseInt(currentDateString);
+  
+  return currentDate;
+}
 
 function getDataList() {
   const db = firebase.firestore();
   const docRef = db.collection("donghang");
+  const currentDate = currentDateNum();
   let dataList = [];
 
-  return docRef.where("city", "==", searchValue).get().then(function (querySnapshot) {
+  return docRef.where("city", "==", searchValue).where("dateNum",">",currentDate).orderBy("dateNum").get().then(function (querySnapshot) {
     querySnapshot.forEach(function (doc) {
       let key = doc.id;
       let data = doc.data();
@@ -156,3 +181,39 @@ function openListDetail() {
     })
   })
 }
+
+//date picker API
+$('#selectedDate').fdatepicker({
+  format: 'yyyy/mm/dd'
+});
+
+//time picker API
+$(document).ready(function () {
+  $('#selectedTIme').timepicker({
+    timeFormat: 'h:mm p', //1:00 PM
+    interval: 60, //시간간격
+    minTime: '7', //최소시간
+    maxTime: '8:00pm', //최대시간
+    startTime: '7:00', //최소시간
+    dynamic: false,
+    dropdown: true,
+    scrollbar: false
+  });
+});
+
+//re-search ani
+$('.side-nav').on('click', function() {
+  
+  if($(this).hasClass("down")){
+    $('.re-search').animate({
+      "bottom": "0"
+    });
+    $(this).addClass("up").removeClass("down");
+  } else {
+    $('.re-search').animate({
+      "bottom": "-54rem"
+    });
+    $(this).addClass("down").removeClass("up");
+  }
+ 
+})

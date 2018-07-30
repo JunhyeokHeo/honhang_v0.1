@@ -1,16 +1,89 @@
+.main-board {
+  overflow: hidden;
+}
 .section-board {
-  width: 80%;
+  width: 90%;
   height: 100vh;
   margin: 0 auto;
   padding: 12rem 0;
   overflow: hidden;
+  position: relative;
+}
+
+.re-search {
+  position: absolute;
+  bottom: -54rem;
+  left: 0;
+  width: 30rem;
+  height: 62rem;
+  padding-left: 3.5rem;
+  z-index: 99;
+  overflow: hidden;
+
+  &__bar {
+    width: 100%;
+  }
+  &__label {
+    display: block;
+  }
+  &__input {
+    width: 80%;
+    height: 4.5rem;
+    font-size: 1.4rem; 
+    padding: 1rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, 0.3);
+    border: none;
+    display: block;
+    transition: all 0.3s;
+    color: $color-white;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-bottom: 2rem;
+    outline: none;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
+
+
+    &::-webkit-input-placeholder {
+      color: $color-grey-light-3;
+    }
+    &:invalid {
+      color: $color-grey-dark;
+    }
+  }
 }
 
 .side-nav {
+  margin: 3rem 0;
+  
+  &__box {
+    width: 100%;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    transition: all .3s;
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+    &:active {
+      transform: translateY(0.5rem);
+    }
+
+  }
+  &__icon {
+    float: left;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.3rem;
+    margin-right: 1rem;
+  }
+}
+
+.sort-tap {
   float: left;
-  width: 25%;
+  width: 35%;
   height: 100%;
-  margin-top: 32rem;
+  margin-top: 35rem;
+  text-align: right;
+  padding-right: 10rem;
   &__box {
     display: inline-block;
     transition: all 0.5s;
@@ -73,7 +146,7 @@
 
 .board {
   float: left;
-  width: 45%;
+  width: 35%;
   position: relative;
   max-height: 100%;
   overflow: auto;
