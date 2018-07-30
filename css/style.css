@@ -70,7 +70,7 @@ body {
 
 .heading-secondary {
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.35; }
   .heading-secondary--white {
@@ -122,6 +122,8 @@ body {
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 1.1rem;
   font-weight: 700; }
+  .small-para--white {
+    color: #fff; }
 
 .tiny-para {
   display: inline-block;
@@ -134,7 +136,7 @@ body {
 
 .detail-h1 {
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 2rem;
   line-height: 1.7;
   color: #fff;
@@ -144,7 +146,7 @@ body {
 .detail-h2 {
   flex: 1;
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.7;
   color: #fff; }
@@ -152,7 +154,7 @@ body {
 .detail-h3 {
   flex: 1;
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.7;
   color: #fff;
@@ -160,7 +162,7 @@ body {
 
 .detail-p {
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
   color: #fff;
@@ -171,7 +173,7 @@ body {
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8); }
+  color: rgba(255, 255, 255, 0.7); }
 
 .u-margin-bottom-1 {
   margin-bottom: 0.5rem !important; }
@@ -184,6 +186,9 @@ body {
 
 .u-margin-bottom-8 {
   margin-bottom: 8rem !important; }
+
+.u-margin-top-1 {
+  margin-top: 0.6rem !important; }
 
 .u-margin-top-2 {
   margin-top: 2rem !important; }
@@ -476,7 +481,7 @@ body {
   .small-popup__text {
     color: #222; }
 
-.signout {
+.state-signout {
   display: none; }
 
 .main {
@@ -680,7 +685,7 @@ body {
 .signin-bg-image {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to right bottom, #eee, #ccc);
+  background-image: linear-gradient(to right bottom, #f7f7f7, #eee);
   position: relative; }
 
 .signin {
@@ -759,7 +764,7 @@ body {
   .form__link:link, .form__link:visited {
     text-decoration: none;
     color: #fff;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 1.6rem;
     margin: 0.5rem;
     transition: all 0.2s;
@@ -791,7 +796,7 @@ body {
 .nav-row {
   margin: 0 auto;
   width: 60%;
-  padding-top: 2rem; }
+  padding-top: 1.5rem; }
   .nav-row__pages {
     float: left; }
 
@@ -934,43 +939,6 @@ select:invalid {
     .sort-tap__box.on {
       border-bottom: 2px solid #fff; }
 
-.detail {
-  float: left;
-  width: 30%;
-  height: 100%; }
-  .detail__modal {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin-left: 1rem; }
-  .detail__content {
-    position: absolute;
-    top: 0;
-    right: -50rem;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    padding: 4rem;
-    background-color: rgba(255, 255, 255, 0.1); }
-  .detail__row1 {
-    display: flex; }
-  .detail__row2 {
-    display: flex; }
-  .detail__absol {
-    position: absolute;
-    left: 50%;
-    bottom: 5%;
-    transform: translate(-50%, -50%); }
-  .detail__contact {
-    display: inline-block;
-    padding: 0 2rem 0 5rem;
-    border: 2px solid #FFEB00;
-    border-radius: 0.6rem;
-    background-image: url("../img/kakao-yellow.png");
-    background-repeat: no-repeat;
-    background-size: contain; }
-
 .board {
   float: left;
   width: 35%;
@@ -1028,6 +996,75 @@ select:invalid {
     background: rgba(255, 255, 255, 0.8); }
   .board::-webkit-scrollbar-thumb:hover {
     background: #222; }
+
+.detail {
+  float: left;
+  width: 30%;
+  height: 100%; }
+  .detail__modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 1rem;
+    overflow: hidden; }
+  .detail__content {
+    position: absolute;
+    top: 0;
+    right: -50rem;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 4rem;
+    background-color: rgba(255, 255, 255, 0.1); }
+  .detail__row1 {
+    display: flex; }
+  .detail__row2 {
+    display: flex; }
+  .detail__absol {
+    position: absolute;
+    left: 4rem;
+    bottom: 4rem; }
+  .detail__contact {
+    border-bottom: 2px solid #FFEB00;
+    cursor: pointer; }
+
+.kakao-title {
+  background-image: url("../img/kakao-yellow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 2.5rem; }
+
+.kakao-profile-back {
+  position: absolute;
+  left: 4rem;
+  bottom: 4rem;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: transform 1s;
+  z-index: 99; }
+  .kakao-profile-back__scaleUp {
+    opacity: 1;
+    transform: scale(200); }
+
+.kakao-profile {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 100; }
+  .kakao-profile__closer {
+    position: absolute;
+    left: 4rem;
+    bottom: 4rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer; }
 
 .auth {
   width: 60%;

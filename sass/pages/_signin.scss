@@ -1,7 +1,7 @@
 .signin-bg-image {
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(to right bottom, $color-grey-light-2, $color-grey-light-3);
+  background-image: linear-gradient(to right bottom, $color-grey-light-1, $color-grey-light-2);
   position: relative;
 }
 
@@ -103,7 +103,7 @@
     &:visited {
       text-decoration: none;
       color: $color-white;
-      font-weight: 600;
+      font-weight: 400;
       font-size: 1.6rem;
       margin: 0.5rem;
       transition: all 0.2s;

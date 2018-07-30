@@ -23,7 +23,7 @@ body {
 
 .heading-secondary {
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.35;
   &--white {
@@ -90,6 +90,9 @@ body {
   font-family: 'Nanum Gothic', sans-serif;
   font-size: 1.1rem;
   font-weight: 700;
+  &--white {
+    color: $color-white;
+  }
 }
 
 .tiny-para {
@@ -104,7 +107,7 @@ body {
 
 .detail-h1 {
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 2rem;
   line-height: 1.7;
   color: $color-white;
@@ -115,7 +118,7 @@ body {
 .detail-h2 {
   flex: 1;
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.7;
   color: $color-white;
@@ -124,7 +127,7 @@ body {
 .detail-h3 {
   flex: 1;
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.8rem;
   line-height: 1.7;
   color: $color-white;
@@ -133,7 +136,7 @@ body {
 
 .detail-p {
   font-family: 'Nanum Gothic', sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
   color: $color-white;
@@ -145,5 +148,5 @@ body {
   font-weight: 600;
   font-size: 1.2rem;
   line-height: 1.7;
-  color: rgba($color-white, 0.8);
+  color: rgba($color-white, 0.7);
 }

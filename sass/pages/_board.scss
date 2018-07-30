@@ -1,6 +1,7 @@
 .main-board {
   overflow: hidden;
 }
+
 .section-board {
   width: 90%;
   height: 100vh;
@@ -100,50 +101,6 @@
   }
 }
 
-.detail {
-  float: left;
-  width: 30%;
-  height: 100%;
-  &__modal {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin-left: 1rem;
-  }
-  &__content {
-    position: absolute;
-    top: 0;
-    right: -50rem;
-    opacity: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    padding: 4rem;
-    background-color: rgba($color-white, 0.1);
-  }
-  &__row1 {
-    display: flex;
-  }
-  &__row2 {
-    display: flex;
-  }
-  &__absol {
-    position: absolute;
-    left: 50%;
-    bottom: 5%;
-    transform: translate(-50%, -50%);
-  }
-  &__contact {
-    display: inline-block;
-    padding: 0 2rem 0 5rem;
-    border: 2px solid #FFEB00;
-    border-radius: 0.6rem;
-    background-image: url("../img/kakao-yellow.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
-}
-
 .board {
   float: left;
   width: 35%;
@@ -213,5 +170,86 @@
   }
   &::-webkit-scrollbar-thumb:hover {
     background: $color-grey-dark-3;
+  }
+}
+
+.detail {
+  float: left;
+  width: 30%;
+  height: 100%;
+  &__modal {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 1rem;
+    overflow: hidden;
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    right: -50rem;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding: 4rem;
+    background-color: rgba($color-white, 0.1);
+  }
+  &__row1 {
+    display: flex;
+  }
+  &__row2 {
+    display: flex;
+  }
+  &__absol {
+    position: absolute;
+    left: 4rem;
+    bottom: 4rem;
+  }
+  &__contact {
+    border-bottom: 2px solid #FFEB00;
+    cursor: pointer;   
+  }
+}
+
+.kakao-title {
+  background-image: url("../img/kakao-yellow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-left: 2.5rem;
+
+}
+
+.kakao-profile-back {
+  position: absolute;
+  left: 4rem;
+  bottom: 4rem;
+  width: 1rem;
+  height: 1rem;
+  opacity: 0;
+  border-radius: 50%;
+  background-color: $color-white;
+  transition: transform 1s;
+  z-index: 99;
+  &__scaleUp {
+    opacity: 1;
+    transform: scale(200);
+  }
+}
+.kakao-profile {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 100;
+  &__closer {
+    position: absolute;
+    left: 4rem;
+    bottom: 4rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
   }
 }

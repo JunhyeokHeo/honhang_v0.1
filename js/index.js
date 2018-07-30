@@ -36,7 +36,7 @@ searchButton.addEventListener('click', function () {
   if (selectedCity != "") {
 
     docRefSearch.set({
-      selectedCity: selectedCity
+      selectedPlace: selectedPlace
     }).then(function () {
       window.location.href = '../pages/board.html';
     }).catch(function (error) {
@@ -138,24 +138,5 @@ $('.small-popup').on('click', function () {
     })
   })
 })
-// algolia 시작
 
-// var PROJECT_ID = 'honghang-7ba3f'          
-// var ALGOLIA_APP_ID = 'LCW2SDIQSU';    
-// var ALGOLIA_SEARCH_KEY = '37953a1db3c8409d1f48f74c46aa107f';
 
-// function unauthenticated_search(query) {
-
-//   var client = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
-//   var index = client.initIndex('donghang');
-
-//   index
-//     .search({
-//       query: query
-//     })
-//     .then(function(responses) {
-//       console.log(responses.hits);
-//     });
-// }
-
-// unauthenticated_search("거주")

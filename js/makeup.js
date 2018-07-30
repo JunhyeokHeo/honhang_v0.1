@@ -68,7 +68,7 @@ makeupButton.addEventListener('click', function () {
     });
 
     docRefSearch.set({
-      selectedCity: selectedCity
+      selectedPlace: selectedPlace
     }).then(function () {
       window.location.href = '../pages/board.html';
     }).catch(function (error) {

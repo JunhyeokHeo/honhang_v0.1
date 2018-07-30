@@ -130,7 +130,11 @@ function getDataList() {
       addParaForTime.innerHTML = `<p class="detail-p-title">시간.&nbsp;</p> ${data.time}`;
       addParaForHowMany.innerHTML = `<p class="detail-p-title">최대인원.&nbsp;</p> ${data.howMany}명`;
       addParaForContent.innerHTML = `<p class="detail-p-title">내용.&nbsp;</p> ${data.content}`;
-      addDivForContact.innerHTML = `${data.kakao}`
+      addDivForContact.innerHTML = `<p class="detail-p-title kakao-title">카카오톡ID.&nbsp;</p> ${data.kakao}`;
+
+      document.querySelectorAll('.detail__contact')[i].addEventListener('click', function(){
+        seeProfile(data.kakao)
+      })
 
     })
     return dataList;
@@ -154,11 +158,11 @@ function openListDetail() {
       $('.detail__content').eq(index).animate({
         "right": "0",
         "opacity": "1"
-      }, 500).siblings().animate({
+      }, 500).siblings('.detail__content').animate({
         "right": "-50rem",
         "opacity": "0"
       })
-      $('.detail__content').eq(index).css("display", "block").siblings().css("display", "none");
+      $('.detail__content').eq(index).css("display", "block").siblings('.detail__content').css("display", "none");
       $(this).addClass('active').siblings().removeClass('active');
       $(this).find('.board__list-title').addClass('active').parent().siblings().find('.board__list-title').removeClass('active');
     })
@@ -198,4 +202,19 @@ $('.side-nav').on('click', function() {
     $(this).addClass("down").removeClass("up");
   }
  
+})
+
+//see kakao profile
+function seeProfile(kakaoId) {
+  $('.kakao-profile__id').html(kakaoId);
+  $('.kakao-profile-back').addClass('kakao-profile-back__scaleUp')
+  $('.kakao-profile').css("display", "block");
+
+}
+
+//close kakao profile
+
+$('.kakao-profile__closer').on('click', function(){
+  $('.kakao-profile-back').removeClass('kakao-profile-back__scaleUp')
+  $('.kakao-profile').css("display", "none");
 })

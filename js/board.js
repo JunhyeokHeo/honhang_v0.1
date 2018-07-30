@@ -41,7 +41,7 @@ function getSearchValue() {
 
   return docRefSearch.get().then(function (doc) {
     if (doc.exists) {
-      searchValue = doc.data().selectedCity
+      searchValue = doc.data().selectedPlace
     } else {
       console.log("No such document!");
     }
@@ -67,21 +67,21 @@ function currentDateNum() {
   return currentDate;
 }
 
+
+var PROJECT_ID = 'honghang-7ba3f'
+var ALGOLIA_APP_ID = 'LCW2SDIQSU';
+var ALGOLIA_SEARCH_KEY = '37953a1db3c8409d1f48f74c46aa107f';
+
+
 function getDataList() {
-  const db = firebase.firestore();
-  const docRef = db.collection("donghang");
+  var client = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_SEARCH_KEY);
+  var index = client.initIndex('donghang');
   const currentDate = currentDateNum();
   let dataList = [];
 
-  return docRef.where("city", "==", searchValue).where("dateNum",">",currentDate).orderBy("dateNum").get().then(function (querySnapshot) {
-    querySnapshot.forEach(function (doc) {
-      let key = doc.id;
-      let data = doc.data();
-
-      dataList = [...dataList, data];
-
-    });
-
+  return index.search({ query: searchValue }).then(function (responses) {
+    dataList = responses.hits.filter(arr => arr.dateNum > currentDate)    
+    console.log(dataList)
     dataList.map(function (data, i) {
       let addLi = document.createElement('li');
       let addDivForTitle = document.createElement('div');
@@ -146,7 +146,7 @@ function getDataList() {
       addParaForTime.innerHTML = `<p class="detail-p-title">시간.&nbsp;</p> ${data.time}`;
       addParaForHowMany.innerHTML = `<p class="detail-p-title">최대인원.&nbsp;</p> ${data.howMany}명`;
       addParaForContent.innerHTML = `<p class="detail-p-title">내용.&nbsp;</p> ${data.content}`;
-      addDivForContact.innerHTML = `${data.kakao}`
+      addDivForContact.innerHTML = `<p class="detail-p-title kakao-title">카카오톡ID.&nbsp;</p> ${data.kakao}`;
 
     })
     return dataList;
@@ -171,11 +171,11 @@ function openListDetail() {
       $('.detail__content').eq(index).animate({
         "right": "0",
         "opacity": "1"
-      }, 500).siblings().animate({
+      }, 500).siblings().find('.detail__content').animate({
         "right": "-50rem",
         "opacity": "0"
       })
-      $('.detail__content').eq(index).css("display", "block").siblings().css("display", "none");
+      $('.detail__content').eq(index).css("display", "block").siblings().find('.detail__content').css("display", "none");
       $(this).addClass('active').siblings().removeClass('active');
       $(this).find('.board__list-title').addClass('active').parent().siblings().find('.board__list-title').removeClass('active');
     })

@@ -10,15 +10,23 @@ var config = {
 firebase.initializeApp(config);
 
 //상태체크
-firebase.auth().onAuthStateChanged(function (user) {
-  if (user) {
-    document.querySelector('.state-signout').style.display = "block";
-    document.querySelector('.state-signin').style.display = "none";
-  } else {
-    document.querySelector('.state-signout').style.display = "none";
-    document.querySelector('.state-signin').style.display = "block";
-  }
-})
+function stateCheck() {
+  let onState = "on"
+  document.querySelector('.state-signin').style.display = "block";
+  document.querySelector('.state-signout').style.display = "none";
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      document.querySelector('.state-signout').style.display = "block";
+      document.querySelector('.state-signin').style.display = "none";
+    } else {
+      document.querySelector('.state-signout').style.display = "none";
+      document.querySelector('.state-signin').style.display = "block";
+    }
+    return onState;
+  })
+}
+
+stateCheck();
 
 //로그아웃
 function signout() {
@@ -26,5 +34,3 @@ function signout() {
     window.location.replace("../index.html");
   });
 }
-
-

@@ -55,6 +55,7 @@ authButton.addEventListener('click', function () {
       if (user) {
 
         var email = user.email;
+        var uid = user.uid;
         var emailVerified = user.emailVerified;
         var selectedName = inputTextMyName.value;
         var selectedAge = inputTextMyAge.value;
@@ -72,6 +73,7 @@ authButton.addEventListener('click', function () {
                 age: selectedAge,
                 city: selectedCity,
                 phone: selectedPhone,
+                uid: uid
               }).then(function (data) {
                 window.location.href = '/pages/makeup.html'
               }).catch(function (error) {
@@ -110,9 +112,9 @@ $('.auth__email-button').on('click', function () {
 $('.auth__checkbox').each(function (i) {
   $('#auth-agree4').on("click", function () {
     if ($(this).is(":checked")) {
-      $(`#auth-agree${i+1}`).attr("checked", "checked");
+      $(`#auth-agree${i+1}`).prop("checked", true);
     } else {
-      $(`#auth-agree${i+1}`).removeAttr("checked");
+      $(`#auth-agree${i+1}`).prop("checked", false);
     }
   })
 });
