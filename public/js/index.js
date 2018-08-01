@@ -92,12 +92,14 @@ $(window).scroll(function () {
   if ($(window).scrollTop() > nav.height() && scrollState == true) {
     nav.addClass('scrolled');
     $(".header__logo").attr("src", "./img/logo-black.png");
-    $(".header__icon").attr("src", "./img/down-arrow-black.png");
+    $(".header__icon").attr("src", "./img/icon-user.png");
+    $(".header__icon-arrow").attr("src", "./img/down-arrow-black.png");
     scrollState = false;
   } else if ($(window).scrollTop() <= nav.height() && scrollState == false) {
     nav.removeClass('scrolled');
-    $(".header__icon").attr("src", "./img/down-arrow.png");
     $(".header__logo").attr("src", "./img/logo-white.png");
+    $(".header__icon").attr("src", "./img/icon-user-white.png");
+    $(".header__icon-arrow").attr("src", "./img/down-arrow.png");
     scrollState = true;
   }
 });

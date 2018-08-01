@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="naver-site-verification" content="8e47921fa9686759c6ac4558e523eea4feeb26d0"/>
+  <meta name="naver-site-verification" content="8e47921fa9686759c6ac4558e523eea4feeb26d0" />
   <meta name="robots" content="index,follow">
   <meta name="description" content="혼자 여행하는데 필요한 정보과 팁, 그리고 동행 매칭을 제공합니다.">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
@@ -23,9 +23,9 @@
     <div class="isIE__container">
       <img src="./img/logo-black.png" alt="logo" class="isIE__img">
       <div class="isIE__text">
-        <strong>"혼행" 웹 어플리케이션은 Internet Explorer 브라우져를 지원하지 않습니다!</strong><br>
-        Chrome 브라우져 또는 Firefox, Safari 등을 이용해주시기바랍니다.<br>
-        감사합니다.
+        <strong>"혼행" 웹 어플리케이션은 <strong>Internet Explorer</strong> 브라우져를 지원하지 않습니다!</strong>
+        <br> <strong>Chrome</strong> 브라우져 또는 Firefox, Safari 등을 이용해주시기바랍니다.
+        <br> 감사합니다.
       </div>
     </div>
   </main>
@@ -44,25 +44,32 @@
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="./pages/signin.html" class="heading-english heading-english--white state-signin">LOGIN
-              <img src="./img/down-arrow.png" alt="icon" class="header__icon">
-            </a>
+            <div class="header__state-menu">
+              <div class="heading-korean heading-korean--white">
+                <img src="./img/icon-user-white.png" alt="icon" class="header__icon">
+                <img src="./img/down-arrow.png" alt="icon" class="header__icon-arrow">
+              </div>
+            </div>
+            <div class="header__current-state">
+              <a href="./pages/signin.html" class="heading-korean state-signin">
+                로그인
+              </a>
+              <a href="#" onclick="signoutMain()" class="heading-korean state-signout">
+                로그아웃
+              </a>
+            </div>
           </div>
-          <div class="header__right-button">
-            <a href="#" onclick="signoutMain()" class="heading-english heading-english--white state-signout">LOGOUT
-              <img src="./img/down-arrow.png" alt="icon" class="header__icon">
-            </a>
-          </div>
+
           <div class="header__right-button header__box"></div>
           <div class="header__right-button">
-            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary a">MAKE DONGHANG</a>
+            <a href="#" onclick="isSignIn()" class="heading-korean heading-korean--primary a">동행 모집</a>
           </div>
           <div class="header__right-button">
-            <a href="#" class="heading-english heading-english--white boardAll">DONGHANG LIST</a>
+            <a href="#" class="heading-korean heading-korean--white boardAll">동행 리스트</a>
           </div>
-          <div class="header__right-button header__box"></div>
+
           <div class="header__right-button scrollNavi-category">
-            <a href="#" class="heading-english heading-english--white">LOCAL MENTOR</a>
+            <a href="#" class="heading-korean heading-korean--white">로컬 멘토</a>
           </div>
         </div>
       </div>
@@ -125,22 +132,25 @@
   </main>
   <section class="section-intro" id="section-intro">
     <div class="intro">
-      <div class="small-para u-margin-bottom-1"><strong>일상에 지친 내가</strong></div>
+      <div class="small-para u-margin-bottom-1">
+        <strong>일상에 지친 내가</strong>
+      </div>
       <div class="heading-primary u-margin-bottom-4">
         혼자 떠나는, 혼자가 아닌 여행.
       </div>
       <div class="sub-para u-margin-bottom-4">
         '혼행'은 2018년 트렌드 키워드로 주위 사람들에게서 벗어나 조용한 시간을 보내기 위해 홀로 여행을 떠나는 것을 말합니다. 일행의 눈치를 볼 필요도 없고, 내 방식대로 여행할 수 있다는 장점이 있죠.
         <br>
-        <br>
-        이러한 트렌트에 맞춰 혼행 서비스는 믿을 수 있는 동행매칭과 현지멘토매칭 그리고 홀로 여행을 위한 실시간 여행정보와 팁을 제공하여 고객님이 안전한 혼행을 다녀오시는 것을 목표로 하고 있습니다.
+        <br> 이러한 트렌트에 맞춰 혼행 서비스는 믿을 수 있는 동행매칭과 현지멘토매칭 그리고 홀로 여행을 위한 실시간 여행정보와 팁을 제공하여 고객님이 안전한 혼행을 다녀오시는 것을 목표로 하고 있습니다.
       </div>
       <div class="heading-tertiary heading-tertiary--bold">"그러니 혼행을 두려워하지마세요. 분명 좋은 여행이 될거에요."</div>
     </div>
   </section>
   <section class="section-category" id="section-category">
     <div class="category">
-      <div class="small-para"><strong>Honhang's main service</strong></div>
+      <div class="small-para">
+        <strong>Honhang's main service</strong>
+      </div>
       <div class="heading-tertiary heading-tertiary--bold">혼행 주요 서비스 소개</div>
     </div>
 
@@ -230,7 +240,7 @@
       <h2 class="popup__text heading-secondary">서비스 준비중입니다.</h2>
     </div>
   </div>
-  <!-- 팝업 -->
+  <!-- 스몰팝업 -->
   <div class="small-popup" id="small-popup">
     <div class="small-popup__content">
       <img src="./img/icon-info.png" alt="icon-info" class="small-popup__icon">

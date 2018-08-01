@@ -29,25 +29,30 @@
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="./signin.html" class="heading-english state-signin">LOGIN
-              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
-            </a>
-          </div>
-          <div class="header__right-button">
-            <a href="#" onclick="signout()" class="heading-english state-signout">LOGOUT
-              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
-            </a>
+            <div class="header__state-menu">
+              <div class="heading-korean">
+                <img src="../img/icon-user.png" alt="icon" class="header__icon">
+                <img src="../img/down-arrow-black.png" alt="icon" class="header__icon-arrow">
+              </div>
+            </div>
+            <div class="header__current-state">
+              <a href="./signin.html" class="heading-korean state-signin">
+                로그인
+              </a>
+              <a href="#" onclick="signout()" class="heading-korean state-signout">
+                로그아웃
+              </a>
+            </div>
           </div>
           <div class="header__right-button header__box header__box--black"></div>
           <div class="header__right-button">
-            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary-dark">MAKE DONGHANG</a>
+            <a href="#" onclick="isSignIn()" class="heading-korean heading-korean--primary-dark">동행 모집</a>
           </div>
           <div class="header__right-button">
-            <a href="#" class="heading-english boardAll">DONGHANG LIST</a>
+            <a href="#" class="heading-korean boardAll">동행 리스트</a>
           </div>
-          <div class="header__right-button header__box header__box--black"></div>
           <div class="header__right-button">
-            <a href="../index.html" class="heading-english">LOCAL MENTOR</a>
+            <a href="../index.html" class="heading-korean">로컬 멘토</a>
           </div>
         </div>
       </div>

@@ -30,25 +30,30 @@
         </div>
         <div class="header__right">
           <div class="header__right-button">
-            <a href="./signin.html" class="heading-english state-signin">LOGIN
-              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
-            </a>
-          </div>
-          <div class="header__right-button">
-            <a href="#" onclick="signout()" class="heading-english state-signout">LOGOUT
-              <img src="../img/down-arrow-black.png" alt="icon" class="header__icon">
-            </a>
+            <div class="header__state-menu">
+              <div class="heading-korean">
+                <img src="../img/icon-user.png" alt="icon" class="header__icon">
+                <img src="../img/down-arrow-black.png" alt="icon" class="header__icon-arrow">
+              </div>
+            </div>
+            <div class="header__current-state">
+              <a href="./signin.html" class="heading-korean state-signin">
+                로그인
+              </a>
+              <a href="#" onclick="signout()" class="heading-korean state-signout">
+                로그아웃
+              </a>
+            </div>
           </div>
           <div class="header__right-button header__box header__box--black"></div>
           <div class="header__right-button">
-            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary-dark">MAKE DONGHANG</a>
+            <a href="#" onclick="isSignIn()" class="heading-korean heading-korean--primary-dark">동행 모집</a>
           </div>
           <div class="header__right-button">
-            <a href="#" class="heading-english boardAll">DONGHANG LIST</a>
+            <a href="#" class="heading-korean boardAll">동행 리스트</a>
           </div>
-          <div class="header__right-button header__box header__box--black"></div>
           <div class="header__right-button">
-            <a href="../index.html" class="heading-english">LOCAL MENTOR</a>
+            <a href="../index.html" class="heading-korean">로컬 멘토</a>
           </div>
         </div>
       </div>
@@ -65,7 +70,7 @@
       <div class=nav-row>
         <div class="nav-row__pages para para--bold">홈</div>
         <div class="nav-row__pages small-para u-margin-top-1">&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;</div>
-        <div class="nav-row__pages para para--bold">동행 만들기</div>
+        <div class="nav-row__pages para para--bold">동행 모집</div>
       </div>
     </div>
     <div class="makeup-progress">
@@ -106,7 +111,8 @@
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">날짜 :</h2>
-        <input type="text" class="makeup__input para para--bold" id="selectedDate" placeholder="2020/07/19" autocomplete="off" required readonly>
+        <input type="text" class="makeup__input para para--bold" id="selectedDate" placeholder="2020/07/19" autocomplete="off" required
+          readonly>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">시간 :</h2>
@@ -133,8 +139,8 @@
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">동행장의 말 :</h2>
-        <textarea class="makeup__input para para--bold makeup__textarea" maxlength="200" id="selectedContent" placeholder="하고싶은 말을 적어주세요~" autocomplete="off"
-          required></textarea>
+        <textarea class="makeup__input para para--bold makeup__textarea" maxlength="200" id="selectedContent" placeholder="하고싶은 말을 적어주세요~"
+          autocomplete="off" required></textarea>
       </div>
       <div class="makeup__buttons">
         <button class="btn btn--white-small" id="backButton">취소</button>

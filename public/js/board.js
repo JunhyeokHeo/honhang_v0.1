@@ -83,7 +83,7 @@ function getDataList() {
     query: searchValue
   }).then(function (responses) {
     dataList = responses.hits.filter(arr => arr.dateNum > currentDate)
-    
+
     dataList.map(function (data, i) {
       let addLi = document.createElement('li');
       let addDivForTitle = document.createElement('div');
@@ -175,6 +175,7 @@ asyncCall();
 function openListDetail() {
   $('.board__list-item').each(function (index) {
     $(this).on("click", function () {
+      closeProfile();
       $('.detail__content').eq(index).animate({
         "right": "0",
         "opacity": "1"
@@ -215,14 +216,19 @@ $('.side-nav').on('click', function () {
     $('.re-search').animate({
       "bottom": "0"
     });
+    $('.re-search__bar').animate({
+      "opacity": "1"
+    });
     $(this).addClass("up").removeClass("down");
   } else {
     $('.re-search').animate({
       "bottom": "-54rem"
     });
+    $('.re-search__bar').animate({
+      "opacity": "0"
+    });
     $(this).addClass("down").removeClass("up");
   }
-
 })
 
 //re-search
@@ -288,7 +294,7 @@ $('.small-popup').on('click', function () {
 var userWithKakaoId;
 
 function getUserData(kakaoId) {
-  console.log(kakaoId)
+
   const docRefForUser = db.collection("users");
   docRefForUser.where("kakaoId", "==", kakaoId).get()
     .then(function (querySnapshot) {
@@ -296,7 +302,11 @@ function getUserData(kakaoId) {
         userWithKakaoId = doc.data();
         //arrange data
         if (doc.exists) {
-          $('.kakao-profile__img').prop("src", userWithKakaoId.kakaoSmallImg);
+          if (userWithKakaoId.kakaoSmallImg !== null) {
+            $('.kakao-profile__img').prop("src", userWithKakaoId.kakaoSmallImg);
+          } else {
+            $('.kakao-profile__img').prop("src", "../img/user-nobody.png");
+          }
           $('.kakao-profile__name').html(userWithKakaoId.name);
           $('.kakao-profile__age').html(`, ${userWithKakaoId.age}`);
           $('.kakao-profile__city').html(userWithKakaoId.city);
@@ -304,6 +314,7 @@ function getUserData(kakaoId) {
         }
       });
       //showup
+
       $('.kakao-profile').css("display", "block");
     })
     .catch(function (error) {
@@ -313,8 +324,9 @@ function getUserData(kakaoId) {
 }
 
 
+
 //close profile
-$('.kakao-profile__closer').on('click', function () {
+function closeProfile() {
   $('.kakao-profile__img').prop("src", "../img/user-nobody.png")
   $('.kakao-profile__name').html("정보가 없습니다.");
   $('.kakao-profile__city').html("");
@@ -322,4 +334,8 @@ $('.kakao-profile__closer').on('click', function () {
   $('.kakao-profile__email').html("");
   //hideup
   $('.kakao-profile').css("display", "none");
+}
+
+$('.kakao-profile__closer').on('click', function () {
+  closeProfile();
 })
