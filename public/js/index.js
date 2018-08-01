@@ -36,6 +36,7 @@ const boardAll = document.querySelector('.boardAll');
 
 
 searchButton.addEventListener('click', function () {
+  event.preventDefault();
   var selectedCity = inputTextCity.value;
   var selectedPlace = inputTextPlace.value;
   var selectedDate = inputTextDate.value;

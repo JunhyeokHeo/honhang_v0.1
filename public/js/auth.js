@@ -206,6 +206,7 @@ Kakao.Auth.createLoginButton({
         kakaoKeyId = res.id;
         kakaoProfileImage = res.properties.profile_image;
         kakaoThumbImage = res.properties.thumbnail_image;
+        console.log(res.properties.profile_image)
       },
       fail: function(error) {
         console.log(JSON.stringify(error));

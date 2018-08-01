@@ -54,8 +54,8 @@ function currentDateNum() {
   let getYear = date.getFullYear();
   let getMonthNum = date.getMonth();
   let getDate = date.getDate();
-  
-  if(getMonthNum < 9){
+
+  if (getMonthNum < 9) {
     getMonth = `0${getMonthNum+1}`
   } else {
     getMonth = getMonthNum + 1
@@ -63,7 +63,7 @@ function currentDateNum() {
 
   let currentDateString = `${getYear}${getMonth}${getDate}`;
   let currentDate = parseInt(currentDateString);
-  
+
   return currentDate;
 }
 
@@ -79,9 +79,11 @@ function getDataList() {
   const currentDate = currentDateNum();
   let dataList = [];
 
-  return index.search({ query: searchValue }).then(function (responses) {
-    dataList = responses.hits.filter(arr => arr.dateNum > currentDate)    
-    console.log(dataList)
+  return index.search({
+    query: searchValue
+  }).then(function (responses) {
+    dataList = responses.hits.filter(arr => arr.dateNum > currentDate)
+    
     dataList.map(function (data, i) {
       let addLi = document.createElement('li');
       let addDivForTitle = document.createElement('div');
@@ -117,7 +119,7 @@ function getDataList() {
       document.querySelector('.detail__modal').appendChild(addDivForDetail);
       document.querySelectorAll('.board__list-item')[i].appendChild(addDivForTitle);
       document.querySelectorAll('.detail__content')[i].appendChild(addDivForTitle2);
-      
+
       document.querySelectorAll('.detail__content')[i].appendChild(addDivForDetailRow1);
       document.querySelectorAll('.detail__content')[i].appendChild(addDivForDetailRow2);
       document.querySelectorAll('.detail__content')[i].appendChild(addDivForDetailAbsol);
@@ -131,7 +133,7 @@ function getDataList() {
       document.querySelectorAll('.detail__absol')[i].appendChild(addDivForContact);
 
       let number = '';
-      if(i < 9) {
+      if (i < 9) {
         number = `0${i+1}`
       } else {
         number = `${i+1}`
@@ -146,7 +148,12 @@ function getDataList() {
       addParaForTime.innerHTML = `<p class="detail-p-title">시간.&nbsp;</p> ${data.time}`;
       addParaForHowMany.innerHTML = `<p class="detail-p-title">최대인원.&nbsp;</p> ${data.howMany}명`;
       addParaForContent.innerHTML = `<p class="detail-p-title">내용.&nbsp;</p> ${data.content}`;
-      addDivForContact.innerHTML = `<p class="detail-p-title kakao-title">카카오톡ID.&nbsp;</p> ${data.kakao}`;
+      addDivForContact.innerHTML = `<p class="detail-p-title kakao-title">카카오톡ID.&nbsp;</p><div class='kakao-id'>${data.kakao}</div>`;
+
+      //open profile
+      document.querySelectorAll('.kakao-id')[i].addEventListener('click', function () {
+        getUserData(data.kakao)
+      })
 
     })
     return dataList;
@@ -202,9 +209,9 @@ $(document).ready(function () {
 });
 
 //re-search ani
-$('.side-nav').on('click', function() {
-  
-  if($(this).hasClass("down")){
+$('.side-nav').on('click', function () {
+
+  if ($(this).hasClass("down")) {
     $('.re-search').animate({
       "bottom": "0"
     });
@@ -215,7 +222,7 @@ $('.side-nav').on('click', function() {
     });
     $(this).addClass("down").removeClass("up");
   }
- 
+
 })
 
 //re-search
@@ -276,18 +283,43 @@ $('.small-popup').on('click', function () {
   })
 })
 
-
 //see kakao profile
-function seeProfile(kakaoId) {
-  $('.kakao-profile__id').html(kakaoId);
-  $('.kakao-profile-back').addClass('kakao-profile-back__scaleUp')
-  $('.kakao-profile').css("display", "block");
 
+var userWithKakaoId;
+
+function getUserData(kakaoId) {
+  console.log(kakaoId)
+  const docRefForUser = db.collection("users");
+  docRefForUser.where("kakaoId", "==", kakaoId).get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        userWithKakaoId = doc.data();
+        //arrange data
+        if (doc.exists) {
+          $('.kakao-profile__img').prop("src", userWithKakaoId.kakaoSmallImg);
+          $('.kakao-profile__name').html(userWithKakaoId.name);
+          $('.kakao-profile__age').html(`, ${userWithKakaoId.age}`);
+          $('.kakao-profile__city').html(userWithKakaoId.city);
+          $('.kakao-profile__email').html(userWithKakaoId.email);
+        }
+      });
+      //showup
+      $('.kakao-profile').css("display", "block");
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+
+    });
 }
 
-//close kakao profile
 
-$('.kakao-profile__closer').on('click', function(){
-  $('.kakao-profile-back').removeClass('kakao-profile-back__scaleUp')
+//close profile
+$('.kakao-profile__closer').on('click', function () {
+  $('.kakao-profile__img').prop("src", "../img/user-nobody.png")
+  $('.kakao-profile__name').html("정보가 없습니다.");
+  $('.kakao-profile__city').html("");
+  $('.kakao-profile__age').html("");
+  $('.kakao-profile__email').html("");
+  //hideup
   $('.kakao-profile').css("display", "none");
 })

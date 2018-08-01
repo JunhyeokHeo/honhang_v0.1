@@ -198,10 +198,10 @@
     outline: none;
     box-shadow: 0 1rem 2rem rgba($color-black, 0.1);
     &::-webkit-input-placeholder {
-      color: $color-grey-dark;
+      color: $color-grey-light-3;
     }
     &:invalid {
-      color: $color-grey-dark;
+      color: $color-grey-light-3;
     }
   }
 }

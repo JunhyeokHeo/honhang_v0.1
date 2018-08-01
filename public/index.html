@@ -6,7 +6,6 @@
   <meta name="naver-site-verification" content="8e47921fa9686759c6ac4558e523eea4feeb26d0"/>
   <meta name="robots" content="index,follow">
   <meta name="description" content="혼자 여행하는데 필요한 정보과 팁, 그리고 동행 매칭을 제공합니다.">
-  <link rel="stylesheet" href="./css/icon-font.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/jquery.js"></script>
@@ -14,8 +13,8 @@
   <link rel="stylesheet" href="./css/datepicker.css">
   <script src="./js/datepicker.js"></script>
   <!-- time picker API -->
-  <link rel="stylesheet" href="./node_modules/jquery-timepicker/jquery.timepicker.css">
-  <script src="./node_modules/jquery-timepicker/jquery.timepicker.js"></script>
+  <link rel="stylesheet" href="./css/timepicker.css">
+  <script src="./js/timepicker.js"></script>
   <title>혼행_혼자아닌여행</title>
 </head>
 
@@ -72,11 +71,11 @@
       <div class="search__text">
         <h1 class="heading-primary heading-primary--white">외롭지않은 나홀로 여행, 동행을 찾아보세요.</h1>
       </div>
-      <div class="search__container">
+      <form class="search__container">
         <div class="row">
           <div class="col-1-of-2">
             <div class="search-bar">
-              <label for="selectedPlace" class="search__label">여행지</label>
+              <label for="selectedPlace" class="search__label">여행지 *</label>
               <input type="text" class="search-bar__input" id="selectedPlace" placeholder="에펠탑" autocomplete="off">
             </div>
           </div>
@@ -121,7 +120,7 @@
             <button class="btn btn--color-full" id="searchButton">검색</button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </main>
   <section class="section-intro" id="section-intro">

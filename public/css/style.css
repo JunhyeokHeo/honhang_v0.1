@@ -71,7 +71,7 @@ body {
 .heading-secondary {
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
-  font-size: 1.7rem;
+  font-size: 1.65rem;
   line-height: 1.35; }
   .heading-secondary--white {
     color: #fff; }
@@ -141,9 +141,10 @@ body {
 .detail-h1 {
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.75rem;
   line-height: 1.7;
   color: #fff;
+  padding-bottom: 0.5rem;
   margin-bottom: 3rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
 
@@ -151,7 +152,7 @@ body {
   flex: 1;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #fff; }
 
@@ -159,7 +160,7 @@ body {
   flex: 1;
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   line-height: 1.7;
   color: #fff;
   margin-top: 1rem; }
@@ -167,7 +168,7 @@ body {
 .detail-p {
   font-family: 'Nanum Gothic', sans-serif;
   font-weight: 400;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   line-height: 1.7;
   color: #fff;
   margin-top: 1rem; }
@@ -649,9 +650,9 @@ body {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1); }
     .search-bar__input::-webkit-input-placeholder {
-      color: #999; }
+      color: #ccc; }
     .search-bar__input:invalid {
-      color: #999; }
+      color: #ccc; }
 
 .intro {
   width: 60rem;
@@ -758,7 +759,7 @@ body {
     .form__group:first-child {
       margin-bottom: 1.5rem; }
   .form__input {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-family: inherit;
     color: #fff;
     padding: 1.5rem 2rem;
@@ -777,7 +778,7 @@ body {
     .form__input:focus:invalid {
       border-bottom: 3px solid #ff2513; }
     .form__input::-webkit-input-placeholder {
-      color: #fff; }
+      color: rgba(255, 255, 255, 0.8); }
   .form__label {
     text-align: left;
     color: #fff;
@@ -932,7 +933,7 @@ select:invalid {
     outline: none;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1); }
     .re-search__input::-webkit-input-placeholder {
-      color: #ccc; }
+      color: #999; }
     .re-search__input:invalid {
       color: #999; }
 
@@ -1048,7 +1049,7 @@ select:invalid {
     height: 100%;
     display: block;
     padding: 4rem;
-    background-color: rgba(255, 255, 255, 0.1); }
+    background-color: rgba(255, 255, 255, 0.05); }
   .detail__row1 {
     display: flex; }
   .detail__row2 {
@@ -1057,15 +1058,19 @@ select:invalid {
     position: absolute;
     left: 4rem;
     bottom: 4rem; }
-  .detail__contact {
-    border-bottom: 2px solid #FFEB00;
-    cursor: pointer; }
 
-.kakao-title {
-  background-image: url("../img/kakao-yellow.png");
+.kakao-id {
+  cursor: pointer;
+  background-image: url("../img/icon-search-yellow.png");
   background-repeat: no-repeat;
   background-size: contain;
-  padding-left: 2.5rem; }
+  padding-left: 3rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid #FFEB00;
+  display: inline;
+  font-size: 1.7rem !important;
+  font-family: 'Lato', serif; }
 
 .kakao-profile {
   position: absolute;

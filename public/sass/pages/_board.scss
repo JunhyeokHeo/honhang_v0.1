@@ -45,7 +45,7 @@
 
 
     &::-webkit-input-placeholder {
-      color: $color-grey-light-3;
+      color: $color-grey-dark;
     }
     &:invalid {
       color: $color-grey-dark;
@@ -193,7 +193,7 @@
     height: 100%;
     display: block;
     padding: 4rem;
-    background-color: rgba($color-white, 0.1);
+    background-color: rgba($color-white, 0.05);
   }
   &__row1 {
     display: flex;
@@ -206,18 +206,20 @@
     left: 4rem;
     bottom: 4rem;
   }
-  &__contact {
-    border-bottom: 2px solid #FFEB00;
-    cursor: pointer;   
-  }
 }
 
-.kakao-title {
-  background-image: url("../img/kakao-yellow.png");
+.kakao-id {
+  cursor: pointer;
+  background-image: url("../img/icon-search-yellow.png");
   background-repeat: no-repeat;
   background-size: contain;
-  padding-left: 2.5rem;
-
+  padding-left: 3rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid #FFEB00;
+  display: inline;
+  font-size: 1.7rem !important;
+  font-family: 'Lato', serif;
 }
 
 .kakao-profile {

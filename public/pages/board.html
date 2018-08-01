@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="../css/datepicker.css">
   <script src="../js/datepicker.js"></script>
   <!-- time picker API -->
-  <link rel="stylesheet" href="../node_modules/jquery-timepicker/jquery.timepicker.css">
-  <script src="../node_modules/jquery-timepicker/jquery.timepicker.js"></script>
+  <link rel="stylesheet" href="../css/timepicker.css">
+  <script src="../js/timepicker.js"></script>
   <!-- firebase -->
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="re-search__bar">
-        <label for="selectedPlace" class="re-search__label para para--white">여행지</label>
+        <label for="selectedPlace" class="re-search__label para para--white">여행지 *</label>
         <input type="text" class="re-search__input" id="selectedPlace" placeholder="에펠탑" autocomplete="off">
       </div>
       <div class="re-search__bar">
@@ -135,12 +135,19 @@
       </div>
       <div class="detail">
         <div class="detail__modal">
-          <div class="kakao-profile-back"></div>
+
           <div class="kakao-profile">
-            <div class="kakao-profile__id"></div>
-            <div class="kakao-profile__closer">
-              뒤로
+            <img src="../img/user-nobody.png" alt="kakao-profile-img" class="kakao-profile__img">
+            <div class="kakao-profile__name-box">
+              <div class="kakao-profile__name para para--bold">정보가 없습니다.</div>
+              <div class="kakao-profile__age sub-para"></div>
             </div>
+            <div class="kakao-profile__city-box sub-para sub-para--grey">
+              <img src="../img/icon-location.png" alt="icon-location" class="kakao-profile__icon">
+              <div class="kakao-profile__city"></div>
+            </div>
+            <div class="kakao-profile__email small-para small-para--grey"></div>
+            <a href="#" class="kakao-profile__closer">&times;</a>
           </div>
           <!-- 자바스크립트로 엘리먼트 생성된 DOM엘리먼트 위치 -->
         </div>
