@@ -60,7 +60,7 @@ makeupButton.addEventListener('click', function () {
   var selectedTIme = inputTextTime.value;
   var selectedHowMany = inputTextHowMany.value;
   var selectedKakao = inputTextKakao.value;
-  var selectedContent = inputTextContent.value;
+  var selectedContent =  $('#selectedContent').val().replace(/\n/g, "<br>");
 
 
   if (selectedTitle != "" && selectedCity != "" && selectedPlace != "" && selectedDate != "" &&
@@ -90,7 +90,7 @@ makeupButton.addEventListener('click', function () {
     docRefSearch.set({
       selectedPlace: selectedPlace
     }).then(function () {
-      window.location.href = './board.html';
+      window.location.href = './boardall.html';
     }).catch(function (error) {
       console.log("error:", error)
     });
@@ -142,3 +142,14 @@ $('.small-popup').on('click', function () {
     })
   })
 })
+
+//textarea 줄바꿈 제한 
+$('#selectedContent').keydown(function(){
+  var rows = $('#selectedContent').val().split('\n').length;
+  var maxRows = 10;
+  if( rows > maxRows){
+      alert('줄바꿈을 조금 줄여주시겠어요?ㅠ');
+      modifiedText = $('#selectedContent').val().split("\n").slice(0, maxRows);
+      $('#selectedContent').val(modifiedText.join("\n"));
+  }
+});
