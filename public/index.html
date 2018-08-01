@@ -16,11 +16,20 @@
   <!-- time picker API -->
   <link rel="stylesheet" href="./node_modules/jquery-timepicker/jquery.timepicker.css">
   <script src="./node_modules/jquery-timepicker/jquery.timepicker.js"></script>
-
   <title>혼행_혼자아닌여행</title>
 </head>
 
 <body>
+  <main class="isIE">
+    <div class="isIE__container">
+      <img src="./img/logo-black.png" alt="logo" class="isIE__img">
+      <div class="isIE__text">
+        <strong>"혼행" 웹 어플리케이션은 Internet Explorer 브라우져를 지원하지 않습니다!</strong><br>
+        Chrome 브라우져 또는 Firefox, Safari 등을 이용해주시기바랍니다.<br>
+        감사합니다.
+      </div>
+    </div>
+  </main>
   <main class="main">
     <div class="bg-image">
       <img src="./img/main_1.jpg" alt="background_main_1" class="bg-image__pic">
@@ -47,7 +56,7 @@
           </div>
           <div class="header__right-button header__box"></div>
           <div class="header__right-button">
-            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary">MAKE DONGHANG</a>
+            <a href="#" onclick="isSignIn()" class="heading-english heading-english--primary a">MAKE DONGHANG</a>
           </div>
           <div class="header__right-button">
             <a href="#" class="heading-english heading-english--white boardAll">DONGHANG LIST</a>
@@ -288,8 +297,7 @@
   <script src="./js/firebase.js"></script>
   <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
   <script type="text/javascript" src="./js/index.js"></script>
-  <script>
-  </script>
+
 </body>
 
 </html>
