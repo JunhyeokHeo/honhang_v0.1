@@ -180,6 +180,10 @@
     align-items: left;
     z-index: -99 !important;
     padding-left: 1.5rem;
+
+    &:hover {
+      background-color: $color-grey-light-2;
+    }
   }
 }
 
@@ -249,7 +253,7 @@
   color: $color-grey-dark-3;
   &__logo {
     float: left;
-    margin: 0.7rem 1rem 0 10rem;
+    margin: 0.7rem 1rem 0 7rem;
     width: 2.2rem;
     height: auto;
   }

@@ -41,7 +41,8 @@ function getSearchValue() {
 
   return docRefSearch.get().then(function (doc) {
     if (doc.exists) {
-      searchValue = doc.data().selectedPlace
+      searchValue = doc.data().selectedPlace;
+      $('.showSearchValue').html(`"${searchValue}"으로 검색하였습니다.`)
     } else {
       console.log("No such document!");
     }

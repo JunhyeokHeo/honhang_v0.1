@@ -110,6 +110,11 @@ $('.scrollNavi-category').find('a').on("click", function () {
     scrollTop: $('.section-category').offset().top - 100
   }, 1000)
 });
+$('.scrollNavi-search').on("click", function () {
+  $('html, body').animate({
+    scrollTop: $('.search').offset().top
+  }, 1000)
+});
 
 //image slider
 var imageIndex = 0;

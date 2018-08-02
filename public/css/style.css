@@ -273,10 +273,9 @@ body {
     background: #fff; }
 
 .btn--white {
-  background: #fff;
   color: #FF5A4D;
-  width: 30rem;
-  border: 1px solid #FF5A4D; }
+  width: 20rem;
+  border: 1px solid #FF5A4D !important; }
   .btn--white::after {
     background: #fff; }
 
@@ -322,10 +321,25 @@ body {
   cursor: pointer; }
 
 .btn-text:hover {
-  transform: translateY(-2px); }
+  transform: translateY(-2px);
+  border-bottom: 1px solid #000; }
 
 .btn-text:active {
   transform: translateY(0); }
+
+.btn-text-bottom {
+  border-bottom: 1px solid transparent; }
+  .btn-text-bottom:link, .btn-text-bottom:visited {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+    display: inline-block;
+    text-decoration: none;
+    padding: 3px;
+    transition: all 0.2s;
+    cursor: pointer; }
+  .btn-text-bottom:hover {
+    border-bottom: 1px solid #000; }
 
 .btn-simple {
   display: inline-block;
@@ -391,12 +405,21 @@ body {
     width: 100%; }
   .card__heading--span {
     padding: 1rem 1.5rem; }
-  .card__cta {
+  .card__back {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
+    text-align: center; }
+  .card__back-content {
+    text-align: left;
+    margin-bottom: 2rem; }
+  .card__button {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center; }
 
 .loading {
@@ -648,6 +671,8 @@ body {
     align-items: left;
     z-index: -99 !important;
     padding-left: 1.5rem; }
+    .header__current-state:hover {
+      background-color: #eee; }
 
 .search {
   width: 100%;
@@ -703,7 +728,7 @@ body {
   color: #333; }
   .social__logo {
     float: left;
-    margin: 0.7rem 1rem 0 10rem;
+    margin: 0.7rem 1rem 0 7rem;
     width: 2.2rem;
     height: auto; }
   .social h2 {
@@ -925,6 +950,18 @@ body {
 
 select:invalid {
   color: #999; }
+
+.agreement {
+  margin: 5rem 0;
+  width: 100%; }
+  .agreement__box {
+    border: 2px solid #999;
+    padding: 3rem; }
+  .agreement__text {
+    border: 1px solid #ccc;
+    padding: 2rem; }
+    .agreement__text p {
+      font-size: 1.1rem; }
 
 .main-board {
   overflow: hidden; }
