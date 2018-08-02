@@ -246,7 +246,7 @@ $('.side-nav').on('click', function () {
 
   if ($(this).hasClass("down")) {
     $('.re-search').animate({
-      "bottom": "0"
+      "bottom": "-3rem"
     });
     $('.re-search__bar').animate({
       "opacity": "1"
@@ -254,7 +254,7 @@ $('.side-nav').on('click', function () {
     $(this).addClass("up").removeClass("down");
   } else {
     $('.re-search').animate({
-      "bottom": "-54rem"
+      "bottom": "-50rem"
     });
     $('.re-search__bar').animate({
       "opacity": "0"

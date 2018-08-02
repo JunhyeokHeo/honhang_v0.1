@@ -186,10 +186,10 @@ function getDataList() {
     allList.addEventListener('scroll', function(){
       if (allList.scrollTop + allList.clientHeight >= allList.scrollHeight) {
         infiniteList();
+        openListDetail();
         console.log("scrolled enough")
       }
     })
-
 
     infiniteList();
 
@@ -254,7 +254,7 @@ $('.side-nav').on('click', function () {
 
   if ($(this).hasClass("down")) {
     $('.re-search').animate({
-      "bottom": "0"
+      "bottom": "-3rem"
     });
     $('.re-search__bar').animate({
       "opacity": "1"
@@ -262,7 +262,7 @@ $('.side-nav').on('click', function () {
     $(this).addClass("up").removeClass("down");
   } else {
     $('.re-search').animate({
-      "bottom": "-54rem"
+      "bottom": "-50rem"
     });
     $('.re-search__bar').animate({
       "opacity": "0"
