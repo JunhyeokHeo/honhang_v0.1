@@ -1,3 +1,35 @@
+//상태체크
+
+function stateMenu() {
+  $('.header__state-menu').on('click', function () {
+    if ($('.header__state-menu').hasClass('menuOn')) {
+
+      $('.header__current-state').css("opacity", "0");
+
+      if($('.header__icon-arrow').attr("src") == "../img/up-arrow.png"){
+        $('.header__icon-arrow').attr("src", "../img/down-arrow.png");
+      } else if ($('.header__icon-arrow').attr("src") == "../img/up-arrow-black.png"){
+        $('.header__icon-arrow').attr("src", "../img/down-arrow-black.png");
+      }
+
+      $('.header__state-menu').removeClass('menuOn');
+    } else {
+
+      $('.header__current-state').css("opacity", "1");
+      
+      if($('.header__icon-arrow').attr("src") == "../img/down-arrow.png"){
+        $('.header__icon-arrow').attr("src", "../img/up-arrow.png");
+      } else if ($('.header__icon-arrow').attr("src") == "../img/down-arrow-black.png"){
+        $('.header__icon-arrow').attr("src", "../img/up-arrow-black.png");
+      }
+
+      $('.header__state-menu').addClass('menuOn');
+    }
+  })
+}
+stateMenu();
+
+
 // Auth
 function isSignIn() {
   var user = firebase.auth().currentUser;
@@ -96,13 +128,7 @@ makeupButton.addEventListener('click', function () {
     });
 
   } else {
-    $('.small-popup').css({
-      "opacity": "1",
-      "visibility": "visible"
-    });
-    $('.small-popup__content').animate({
-      "right": "2rem"
-    }, 300);
+    popUpOpenforMakeUP(1);
   }
 
 });
@@ -148,8 +174,31 @@ $('#selectedContent').keydown(function(){
   var rows = $('#selectedContent').val().split('\n').length;
   var maxRows = 10;
   if( rows > maxRows){
-      alert('줄바꿈을 조금 줄여주시겠어요?ㅠ');
+      popUpOpenforMakeUP(2);
       modifiedText = $('#selectedContent').val().split("\n").slice(0, maxRows);
       $('#selectedContent').val(modifiedText.join("\n"));
   }
 });
+
+
+function popUpOpenforMakeUP(i) {
+  switch (i) {
+    case 1:
+      $(".small-popup__text").html("동행정보를 모두 입력해주세요.");
+      break;
+    case 2:
+      $(".small-popup__text").html("줄바꿈을 조금 줄여주시겠어요?");
+      break;
+  }
+
+  $(".small-popup").css({
+    opacity: "1",
+    visibility: "visible"
+  });
+  $(".small-popup__content").animate(
+    {
+      right: "2rem"
+    },
+    300
+  );
+}

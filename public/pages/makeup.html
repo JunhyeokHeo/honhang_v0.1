@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Nanum+Gothic:400,700&amp;subset=korean" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">
   <link rel="stylesheet" href="../css/style.css">
   <script src="../js/jquery.js"></script>
   <!-- date picker API -->
@@ -99,28 +100,28 @@
     <div class="makeup">
       <div class="makeup__form">
         <h2 class="makeup__text">제목 :</h2>
-        <input type="text" class="makeup__input para para--bold" id="selectedTitle" placeholder="게시글 제목" autocomplete="off" required>
+        <input type="text" class="makeup__input para" id="selectedTitle" placeholder="게시글 제목" autocomplete="off" required>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">여행지 :</h2>
-        <input type="text" class="makeup__input para para--bold" id="selectedPlace" placeholder="에펠탑" autocomplete="off" required>
+        <input type="text" class="makeup__input para" id="selectedPlace" placeholder="에펠탑" autocomplete="off" required>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">도시 :</h2>
-        <input type="text" class="makeup__input para para--bold" id="selectedCity" placeholder="파리" autocomplete="off" required>
+        <input type="text" class="makeup__input para" id="selectedCity" placeholder="파리" autocomplete="off" required>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">날짜 :</h2>
-        <input type="text" class="makeup__input para para--bold" id="selectedDate" placeholder="2020/07/19" autocomplete="off" required
+        <input type="text" class="makeup__input para" id="selectedDate" placeholder="2020/07/19" autocomplete="off" required
           readonly>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">시간 :</h2>
-        <input class="makeup__input para para--bold" id="selectedTIme" placeholder="8:00 AM" autocomplete="off" required readonly>
+        <input class="makeup__input para" id="selectedTIme" placeholder="8:00 AM" autocomplete="off" required readonly>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">최대인원 :</h2>
-        <select id="selectedHowMany" class="makeup__input para para--bold" required>
+        <select id="selectedHowMany" class="makeup__input para" required>
           <option value="" disabled selected hidden>0명</option>
           <option value="2">2명</option>
           <option value="3">3명</option>
@@ -134,12 +135,12 @@
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">카카오톡 ID :</h2>
-        <input type="text" class="makeup__input para para--bold" id="selectedKakao" placeholder="연락받으실 카카오톡 아이디를 입력해주세요." autocomplete="off"
+        <input type="text" class="makeup__input para" id="selectedKakao" placeholder="연락받으실 카카오톡 아이디를 입력해주세요." autocomplete="off"
           required readonly>
       </div>
       <div class="makeup__form">
         <h2 class="makeup__text">동행장의 말 :</h2>
-        <textarea class="makeup__input para para--bold makeup__textarea" maxlength="200" id="selectedContent" placeholder="하고싶은 말을 적어주세요~"
+        <textarea class="makeup__input para makeup__textarea" maxlength="200" id="selectedContent" placeholder="하고싶은 말을 적어주세요~"
           autocomplete="off" required></textarea>
       </div>
       <div class="makeup__buttons">
@@ -153,7 +154,7 @@
   <div class="small-popup" id="small-popup">
     <div class="small-popup__content">
       <img src="../img/icon-info.png" alt="icon-info" class="small-popup__icon">
-      <h2 class="small-popup__text para">동행정보를 모두 입력해주세요.</h2>
+      <h2 class="small-popup__text para"></h2>
     </div>
   </div>
 

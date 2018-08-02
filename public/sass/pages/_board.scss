@@ -58,16 +58,12 @@
   
   &__box {
     width: 100%;
-    cursor: pointer;
     letter-spacing: 0.1rem;
     transition: all .3s;
+    cursor: pointer;
     &:hover {
-      transform: translateY(-0.5rem);
+      transform: translateY(-2px);
     }
-    &:active {
-      transform: translateY(0.5rem);
-    }
-
   }
   &__icon {
     float: left;
@@ -90,10 +86,6 @@
     transition: all 0.5s;
     &:not(:last-child) {
       margin-right: 1rem;
-    }
-    &:hover,
-    &:active {
-      transform: translateY(-2px);
     }
     &.on {
       border-bottom: 2px solid $color-white;
