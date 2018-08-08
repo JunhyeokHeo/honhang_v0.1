@@ -69,6 +69,7 @@ function currentDateNum() {
   let getYear = date.getFullYear();
   let getMonthNum = date.getMonth();
   let getDate = date.getDate();
+  let getMonth;
 
   if (getMonthNum < 9) {
     getMonth = `0${getMonthNum+1}`
